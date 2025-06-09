@@ -42,9 +42,7 @@
     </style>
 
     <div class="card">
-       
         <div class="card-body">
-       
             <div class="d-flex justify-content-between mb-3">
                 <input type="text" id="searchInput" class="form-control w-50" placeholder="Search pastors...">
                 <a href="{{ route('dataPastor.addpastor') }}" class="btn btn-success">+ Add Pastor</a>
@@ -52,53 +50,69 @@
 
             <table class="table table-hover table-custom" id="membersTable">
                 <thead class="table-primary">
-                    <tr><th><i class="fas fa-edit" title="Edit"></i></th>
+                    <tr>
+                        <th><i class="fas fa-edit" title="Edit"></i></th>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Address</th>
+                        <th>Address ID</th>
                         <th>Phone</th>
-                        <th>Church</th>                        
+                        <th>Church ID</th>
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="{{ route('dataPastor.edit') }}" class="btn btn-warning btn-sm">...</a>
-                            
-                        </td>
-                        <td>001</td>
-                        <td>John Doe</td>
-                        <td>Bogo City</td>
-                        <td>123-456-7890</td>
-                        <td>Bogo Baptist</td>
-                         <td><span class="badge-active">Active</span></td>
-                    </tr>
-                   
-
-                                        <tr>
-                        <td>
-                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="{{ route('dataPastor.edit') }}" class="btn btn-warning btn-sm">...</a>
-                            
-                        </td>
-                        <td>002</td>
-                        <td>Monding</td>
-                        <td>Bogo City</td>
-                        <td>123-456-7890</td>
-                        <td>Bogo Baptist</td>
-                         <td><span class="badge-active">Active</span></td>
-                    </tr>
-                   
-                   
+                <tbody id="pastorTableBody">
+                    <tr><td colspan="7" class="text-center">Loading...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
     <script>
-        // Simple client-side search filter
+        function renderStatusBadge(status) {
+            switch (status) {
+                case 1: return '<span class="badge-active">Active</span>';
+                case 0: return '<span class="badge-inactive">Inactive</span>';
+                default: return '<span class="badge-pending">Pending</span>';
+            }
+        }
+
+        fetch("http://stewardshipapi.test/api/manage-pastors/list")
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                const pastors = data.pastors;
+                const tbody = document.getElementById('pastorTableBody');
+                tbody.innerHTML = '';
+
+                if (!Array.isArray(pastors) || pastors.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="text-center">No pastors found.</td></tr>';
+                    return;
+                }
+
+                pastors.forEach(pastor => {
+                    const row = `
+                        <tr>
+                            <td>
+                                <a href="{{ route('dataPastor.edit') }}?id=${pastor.pastor_id}" class="btn btn-warning btn-sm">...</a>
+                            </td>
+                            <td>${pastor.pastor_id}</td>
+                            <td>${pastor.first_name} ${pastor.last_name}</td>
+                            <td>${pastor.address_id ?? '-'}</td>
+                            <td>${pastor.phone ?? '-'}</td>
+                            <td>${pastor.church_id ?? '-'}</td>
+                            <td>${renderStatusBadge(pastor.status)}</td>
+                        </tr>
+                    `;
+                    tbody.insertAdjacentHTML('beforeend', row);
+                });
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('pastorTableBody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load data.</td></tr>';
+            });
+
         document.getElementById('searchInput').addEventListener('keyup', function () {
             let filter = this.value.toLowerCase();
             let rows = document.querySelectorAll('#membersTable tbody tr');
