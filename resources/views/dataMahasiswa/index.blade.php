@@ -70,9 +70,9 @@
                         <td>123-456-7890</td>
                         <td>Rev. Smith</td>
                         <td>
-                            <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                             <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
                         </td>
                         <td><span class="badge-active">Active</span></td>
                     </tr>
@@ -83,11 +83,11 @@
                         <td>987-654-3210</td>
                         <td>Rev. Adams</td>
                         <td>
-                            <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                             <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </td>
+                           <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>                        </td>
                         <td><span class="badge-inactive">Inactive</span></td>
+
                     </tr>
                     <tr>
                         <td>003</td>
@@ -96,9 +96,10 @@
                         <td>555-321-9876</td>
                         <td>Rev. Clark</td>
                         <td>
-                            <a href="#" class="btn btn-primary btn-sm">Detail</a>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                             <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
+                         
                         </td>
                         <td><span class="badge-pending">Pending</span></td>
                     </tr>

@@ -30,6 +30,11 @@ public function bulkupload()
     return view('dataMahasiswa.bulkupload');
 }
 
+public function addpayment()
+{
+    return view('dataMahasiswa.addpayment');
+}
+
     /**
      * Show the form for creating a new resource.
      */

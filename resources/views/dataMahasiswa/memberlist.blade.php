@@ -3,7 +3,7 @@
 @section('title', 'Bulk Upload')
   
 @section('contents')
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between ">
         <h2 class="mb-0">Member List</h2>
         <a href="{{ route('dataMahasiswa.create') }}" class="btn btn-success">+ Add user</a>
     </div>
