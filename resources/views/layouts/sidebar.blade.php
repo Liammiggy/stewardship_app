@@ -121,7 +121,7 @@
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataPastor.pastorlist') }}">
-                <i class="fas fa-fw fa-users me-2"></i> Pastor
+                <i class="fas fa-user-tie fa-fw me-2"></i> Pastor
             </a>
         </li>
 
@@ -142,7 +142,7 @@
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataChurch.churchlist') }}">
-                <i class="fas fa-fw fa-users me-2"></i> Churches
+                <i class="fas fa-church fa-fw me-2"></i> Churches
             </a>
         </li>
 
@@ -163,7 +163,7 @@
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataOrganization.organizationlist') }}">
-                <i class="fas fa-fw fa-users me-2"></i> Organization
+                <i class="fas fa-sitemap fa-fw me-2"></i> Organization
             </a>
         </li>
 
