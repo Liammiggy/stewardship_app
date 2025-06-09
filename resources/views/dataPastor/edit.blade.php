@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add New Pastor')
+@section('title', 'Update Pastor Info')
 @section('contents')
 <!-- <h1 class="mb-0">Add Member Information</h1> -->
 <!-- <hr /> -->
@@ -82,8 +82,14 @@
                <!-- Buttons -->
                <div class="text-left mt-4">
                   <button type="submit" class="btn btn-success">Submit</button>
-                  <button type="reset" class="btn btn-warning ml-2">Reset</button>
+                 <button type="reset" class="btn btn-warning ml-2"
+                            onclick="return confirm('Do you want to delete this Pastor?')">
+                            Delete
+                        </button>
                   <a href="{{ route('dataPastor.pastorlist') }}" class="btn btn-secondary ml-2">Back</a>
+
+
+
                </div>
                <!-- Retirement Warning -->
                <div id="retirementWarning" class="alert alert-warning mt-3 d-none">

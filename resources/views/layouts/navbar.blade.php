@@ -2,9 +2,26 @@
 <style>
   
 .topbar {
-    height: 3rem;
-
+   height: 3rem;
+  
   }
+
+
+<style>
+  
+/* .topbar {
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    width: 100%;
+    background-color: white !important;
+    box-shadow: 0 0.15rem 1rem rgba(0, 0, 0, 0.1);
+} */
+
+
 </style>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
   

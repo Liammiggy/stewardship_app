@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PastorController;
+use App\Http\Controllers\ChurchController;
+use App\Http\Controllers\OrganizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +57,33 @@ Route::middleware('auth')->group(function () {
   Route::controller(PastorController::class)->prefix('dataPastor')->group(function () {
        
         Route::get('addpastor', 'addpastor')->name('dataPastor.addpastor');
-         Route::get('pastorlist', 'pastorlist')->name('dataPastor.pastorlist');
+        Route::get('pastorlist', 'pastorlist')->name('dataPastor.pastorlist');
+        Route::get('edit', 'edit')->name('dataPastor.edit');
 
 
     });
+
+
+      Route::controller(ChurchController::class)->prefix('dataChurch')->group(function () {
+       
+        Route::get('addchurch', 'addchurch')->name('dataChurch.addchurch');
+        Route::get('churchlist', 'churchlist')->name('dataChurch.churchlist');
+        Route::get('edit', 'edit')->name('dataChurch.edit');
+
+
+    });
+
+        Route::controller(OrganizationController::class)->prefix('dataOrganization')->group(function () {
+       
+        Route::get('addorganization', 'addorganization')->name('dataOrganization.addorganization');
+        Route::get('organizationlist', 'organizationlist')->name('dataOrganization.organizationlist');
+        Route::get('edit', 'edit')->name('dataOrganization.edit');
+
+
+    });
+
+
+
 
 
 

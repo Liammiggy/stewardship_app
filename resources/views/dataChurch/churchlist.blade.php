@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pastors')
+@section('title', 'Churches')
 
 @section('contents')
     <style>
@@ -46,8 +46,8 @@
         <div class="card-body">
        
             <div class="d-flex justify-content-between mb-3">
-                <input type="text" id="searchInput" class="form-control w-50" placeholder="Search pastors...">
-                <a href="{{ route('dataPastor.addpastor') }}" class="btn btn-success">+ Add Pastor</a>
+                <input type="text" id="searchInput" class="form-control w-50" placeholder="Search churches...">
+                <a href="{{ route('dataChurch.addchurch') }}" class="btn btn-success">+ Add Church</a>
             </div>
 
             <table class="table table-hover table-custom" id="membersTable">
@@ -65,7 +65,7 @@
                     <tr>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="{{ route('dataPastor.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            <a href="{{ route('dataChurch.edit') }}" class="btn btn-warning btn-sm">...</a>
                             
                         </td>
                         <td>001</td>
@@ -80,7 +80,7 @@
                                         <tr>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="{{ route('dataPastor.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            <a href="{{ route('dataChurch.edit') }}" class="btn btn-warning btn-sm">...</a>
                             
                         </td>
                         <td>002</td>
