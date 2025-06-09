@@ -29,11 +29,11 @@
       <i class="fas fa-fw fa-address-book me-2"></i> Member List
     </a>
   </li>
-  <li class="nav-item mb-1" style="margin-left: 30px;">
+  <!-- <li class="nav-item mb-1" style="margin-left: 30px;">
     <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.create') }}" style="font-size: 0.9rem;">
       <i class="fas fa-fw fa-user-plus me-2"></i> Add Member
     </a>
-  </li>
+  </li> -->
   <li class="nav-item mb-1" style="margin-left: 30px;">
     <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.bulkupload') }}" style="font-size: 0.9rem;">
       <i class="fas fa-fw fa-file-upload me-2"></i> Bulk Upload

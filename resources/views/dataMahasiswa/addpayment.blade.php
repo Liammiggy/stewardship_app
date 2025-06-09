@@ -8,7 +8,7 @@
         <div class="row">
             <!-- Left Card: Photo Display -->
             <div class="col-md-4">
-                <div class="card h-80 shadow">
+                <div class="card">
                     <div class="card-header">Photo</div>
                     <div class="card-body d-flex flex-column justify-content-center align-items-center">
                         <!-- Photo preview -->
@@ -23,7 +23,7 @@
 
             <!-- Right Card: Payment Info -->
             <div class="col-md-8">
-                <div class="card h-100 shadow">
+                <div class="card">
                     <div class="card-header">Payment Information</div>
                     <div class="card-body">
                         <div class="mb-3">
