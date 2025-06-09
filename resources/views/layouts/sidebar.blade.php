@@ -97,7 +97,7 @@
 
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa') }}">
-                Member
+                Members
             </a>
         </li>
 
@@ -112,6 +112,26 @@
                 Bulk Upload
             </a>
         </li>
+    </ul>
+
+    <hr class="my-4 border-top border-secondary w-100">
+
+
+    {{-- Membership Section --}}
+    <ul class="nav flex-column px-0" style="width:100%;">
+        <li class="nav-item mb-2">
+            <a class="nav-link fw-bold text-white" >
+                <i class="fas fa-fw fa-users me-2"></i> Pastor
+            </a>
+        </li>
+
+        <li class="nav-item mb-2" style="margin-left:30px;">
+            <a class="nav-link text-secondary ps-3" href="{{ route('dataPastor.pastorlist') }}">
+                Pastors
+            </a>
+        </li>
+
+       
     </ul>
 
     <hr class="my-4 border-top border-secondary w-100">

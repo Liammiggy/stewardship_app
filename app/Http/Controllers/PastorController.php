@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mahasiswa;
+use App\Models\Pastor;
 
-class MahasiswaController extends Controller
+class PastorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,21 +19,17 @@ class MahasiswaController extends Controller
 
 
 
-     public function memberlist()
+
+public function addpastor()
 {
-    $mahasiswa = Mahasiswa::orderBy('created_at', 'DESC')->get();
-    return view('dataMahasiswa.memberlist', compact('mahasiswa'));
+    return view('dataPastor.addpastor');
 }
 
-public function bulkupload()
+public function pastorlist()
 {
-    return view('dataMahasiswa.bulkupload');
+    return view('dataPastor.pastorlist');
 }
 
-public function addpayment()
-{
-    return view('dataMahasiswa.addpayment');
-}
 
     /**
      * Show the form for creating a new resource.
@@ -43,11 +39,7 @@ public function addpayment()
         return view('dataMahasiswa.create');
     }
 
-      public function edit()
-    {
-          
-        return view('dataMahasiswa.edit');
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -81,15 +73,12 @@ public function addpayment()
     /**
      * Show the form for editing the specified resource.
      */
-
- 
-
-    // public function edit(string $id)
-    // {
-    //     $mahasiswa = Mahasiswa::findOrFail($id);
+    public function edit(string $id)
+    {
+        $mahasiswa = Mahasiswa::findOrFail($id);
   
-    //     return view('dataMahasiswa.edit', compact('mahasiswa'));
-    // }
+        return view('dataMahasiswa.edit', compact('mahasiswa'));
+    }
 
     /**
      * Update the specified resource in storage.

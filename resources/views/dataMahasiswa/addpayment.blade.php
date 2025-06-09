@@ -64,6 +64,7 @@
                         <div class="text-left mt-4">
                             <button type="submit" class="btn btn-success">Submit</button>
                             <button type="reset" class="btn btn-warning ml-2">Reset</button>
+                             <a href="{{ route('dataMahasiswa') }}" class="btn btn-secondary ml-2">Back</a>
                         </div>
                     </div>
                 </div>

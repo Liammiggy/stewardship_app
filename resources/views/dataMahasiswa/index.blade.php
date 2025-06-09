@@ -52,7 +52,8 @@
 
             <table class="table table-hover table-custom" id="membersTable">
                 <thead class="table-primary">
-                    <tr>
+                    <tr> <th><i class="fas fa-edit" title="Edit"></i></th>
+
                         <th>ID</th>
                         <th>Name</th>
                         <th>Retirement Age</th>
@@ -64,6 +65,11 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
+                            <a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            
+                        </td>
                         <td>001</td>
                         <td>John Doe</td>
                         <td>65</td>
@@ -71,12 +77,17 @@
                         <td>Rev. Smith</td>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                           
                             <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
                         </td>
                         <td><span class="badge-active">Active</span></td>
                     </tr>
                     <tr>
+                        <td>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
+                            <a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            
+                        </td>
                         <td>002</td>
                         <td>Jane Doe</td>
                         <td>62</td>
@@ -84,12 +95,16 @@
                         <td>Rev. Adams</td>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                           
                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>                        </td>
                         <td><span class="badge-inactive">Inactive</span></td>
 
                     </tr>
-                    <tr>
+                    <tr><td>
+                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
+                            <a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            
+                        </td>
                         <td>003</td>
                         <td>Mark Smith</td>
                         <td>64</td>
@@ -97,7 +112,7 @@
                         <td>Rev. Clark</td>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                           
                             <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
                          
                         </td>

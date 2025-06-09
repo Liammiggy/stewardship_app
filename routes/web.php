@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PastorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::get('create', 'create')->name('dataMahasiswa.create');
         Route::post('store', 'store')->name('dataMahasiswa.store');
         Route::get('show/{id}', 'show')->name('dataMahasiswa.show');
-        Route::get('edit/{id}', 'edit')->name('dataMahasiswa.edit');
+        Route::get('edit', 'edit')->name('dataMahasiswa.edit');
         Route::put('edit/{id}', 'update')->name('dataMahasiswa.update');
         Route::delete('destroy/{id}', 'destroy')->name('dataMahasiswa.destroy');
         Route::get('memberlist', 'memberlist')->name('dataMahasiswa.memberlist');
@@ -48,8 +49,16 @@ Route::middleware('auth')->group(function () {
 
 
     });
- 
 
+     
+ 
+  Route::controller(PastorController::class)->prefix('dataPastor')->group(function () {
+       
+        Route::get('addpastor', 'addpastor')->name('dataPastor.addpastor');
+         Route::get('pastorlist', 'pastorlist')->name('dataPastor.pastorlist');
+
+
+    });
 
 
 

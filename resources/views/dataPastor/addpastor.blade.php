@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Update Member')
+@section('title', 'Add New Pastor')
 
 @section('contents')
     <!-- <h1 class="mb-0">Add Member Information</h1> -->
@@ -131,11 +131,7 @@
                         <!-- Buttons -->
                         <div class="text-left mt-4">
                             <button type="submit" class="btn btn-success">Submit</button>
-                            <button type="reset" class="btn btn-warning ml-2"
-                            onclick="return confirm('Do you want to delete this member?')">
-                            Delete
-                        </button>
-
+                            <button type="reset" class="btn btn-warning ml-2">Reset</button>
                             <a href="{{ route('dataMahasiswa') }}" class="btn btn-secondary ml-2">Back</a>
                         </div>
 
