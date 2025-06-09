@@ -13,33 +13,41 @@
       </a>
    </li>
    <hr class="my-4 border-top border-secondary w-100">
-   <li class="nav-item" style="background-color: #1E1E2D;">
-      <a class="nav-link text-white" href="{{ route('dataMahasiswa') }}">
-         <i class="fas fa-fw fa-address-book"></i> <!-- Member List -->
-         <span>Member List</span>
-      </a>
-   </li>
-   <li class="nav-item" style="background-color: #1E1E2D;">
-      <a class="nav-link text-white" href="{{ route('dataMahasiswa.create') }}">
-         <i class="fas fa-fw fa-user-plus"></i> <!-- Add Member -->
-         <span>Add Member</span>
-      </a>
-   </li>
-   <li class="nav-item" style="background-color: #1E1E2D;">
-      <a class="nav-link text-white" href="{{ route('dataMahasiswa.bulkupload') }}">
-      <i class="fas fa-fw fa-file-upload"></i>
-      <span>Bulk Upload</span>
-      </a>
-   </li>
+   
+<ul class="nav flex-column" style="width: 220px; padding-left: 0;">
+
+  <!-- Main Button -->
+  <li class="nav-item mb-2">
+    <a class="nav-link fw-bold text-dark" href="#" style="font-size: 1.1rem;">
+      <i class="fas fa-fw fa-users me-2"></i> Membership
+    </a>
+  </li>
+
+  <!-- Submenu Items, shifted right -->
+  <li class="nav-item mb-1" style="margin-left: 30px;">
+    <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa') }}" style="font-size: 0.9rem;">
+      <i class="fas fa-fw fa-address-book me-2"></i> Member List
+    </a>
+  </li>
+  <li class="nav-item mb-1" style="margin-left: 30px;">
+    <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.create') }}" style="font-size: 0.9rem;">
+      <i class="fas fa-fw fa-user-plus me-2"></i> Add Member
+    </a>
+  </li>
+  <li class="nav-item mb-1" style="margin-left: 30px;">
+    <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.bulkupload') }}" style="font-size: 0.9rem;">
+      <i class="fas fa-fw fa-file-upload me-2"></i> Bulk Upload
+    </a>
+  </li>
+  <li class="nav-item mb-1" style="margin-left: 30px;">
+    <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.addpayment') }}" style="font-size: 0.9rem;">
+      <i class="fas fa-fw fa-file-upload me-2"></i> Payment
+    </a>
+  </li>
+  
+</ul>
 
 
-
-    <li class="nav-item" style="background-color: #1E1E2D;">
-      <a class="nav-link text-white" href="{{ route('dataMahasiswa.addpayment') }}">
-      <i class="fas fa-fw fa-file-upload"></i>
-      <span>Payment</span>
-      </a>
-   </li>
    <hr class="my-4 border-top border-secondary w-100">
    <!-- Divider -->
    <!-- <hr class="sidebar-divider d-none d-md-block" style="border-color: #7C8DB5;"> -->
