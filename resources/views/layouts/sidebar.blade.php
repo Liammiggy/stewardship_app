@@ -1,43 +1,58 @@
-{{-- -------------  STYLES ------------- --}}
+{{-- ------------- STYLES ------------- --}}
 <style>
-    /* === Sidebar container === */
     #accordionSidebar {
-        width: 250px;                /* expanded width */
+        width: 250px;
         min-height: 100vh;
         background-color: #1E1E2D;
         transition: width .3s ease;
         overflow-x: hidden;
     }
 
-    /* Collapse state: shrink width, hide EVERYTHING except .toggle-container */
     #accordionSidebar.collapsed {
-        width: 60px;                 /* thin strip for toggle bar */
+        width: 60px;
     }
-    #accordionSidebar.collapsed > *:not(.toggle-container) {
+
+    #accordionSidebar.collapsed > *:not(.sidebar-brand) {
         display: none !important;
     }
 
-    /* === Toggle bar (always visible) === */
-    .toggle-container {
-        width: 100%;
-        padding: 0;
+    #accordionSidebar .sidebar-brand {
+        height: 56px;
+          /* background-color:red; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
     }
+
+    .sidebar-dark #sidebarToggle {
+    background-color: #1E1E2D;
+    margin-bottom: 0rem;
+}
+
+ .sidebar.toggled {
+        overflow: visible;
+        width: 3rem !important;
+   
+}
     #sidebarToggle {
-        width: 100%;
-        height: 40px;
-        background-color: #7C8DB5;
+        background-color:red;
         border: none;
         color: #fff;
         font-size: 1.25rem;
-        cursor: pointer;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 0;            /* square edges */
+        border-radius: 4px;
+        cursor: pointer;
     }
-    #sidebarToggle:focus { outline: none; }
 
-    /* === Optional link styling (desktop) === */
+    #sidebarToggle:focus {
+        outline: none;
+    }
+
     @media (min-width: 768px) {
         .sidebar .nav-item .nav-link {
             display: block;
@@ -46,31 +61,22 @@
             padding: 5px;
             font-size: 13.6px;
         }
-   
-    .sidebar.toggled {
-        overflow: visible;
-        width: 2.5rem !important;
-   
-}
     }
 </style>
 
-{{-- -------------  SIDEBAR ------------- --}}
+{{-- ------------- SIDEBAR ------------- --}}
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    {{-- Toggle bar (always stays) --}}
-    <div class="toggle-container text-center">
+    {{-- Sidebar Brand with Toggle on Right --}}
+    <div class="sidebar-brand">
+        <a href="{{ route('dashboard') }}" class="text-white text-decoration-none d-flex align-items-center">
+            <div class="sidebar-brand-text mx-2">Stewardship</div>
+        </a>
         <button id="sidebarToggle" aria-label="Toggle sidebar">
            
         </button>
     </div>
-
-    {{-- Brand --}}
-    <a class="sidebar-brand d-flex align-items-center justify-content-center"
-       href="{{ route('dashboard') }}" style="background-color:#14141E;height:56px;">
-        <div class="sidebar-brand-text mx-3 text-white">Stewardship</div>
-    </a>
-
+ <hr class="my-4 border-top border-secondary w-100">
     {{-- Dashboard --}}
     <li class="nav-item">
         <a class="nav-link text-white" href="{{ route('dashboard') }}">
@@ -81,7 +87,7 @@
 
     <hr class="my-4 border-top border-secondary w-100">
 
-    {{-- Membership section --}}
+    {{-- Membership Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataMahasiswa') }}">
@@ -111,16 +117,15 @@
     <hr class="my-4 border-top border-secondary w-100">
 </ul>
 
-{{-- -------------  SCRIPTS ------------- --}}
+{{-- ------------- SCRIPTS ------------- --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const sidebar  = document.getElementById('accordionSidebar');
-        const toggle   = document.getElementById('sidebarToggle');
-        const icon     = toggle.querySelector('i');
+        const sidebar = document.getElementById('accordionSidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const icon = toggleBtn.querySelector('i');
 
-        toggle.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
             icon.classList.toggle('fa-angle-left');
             icon.classList.toggle('fa-angle-right');
