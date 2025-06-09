@@ -144,7 +144,7 @@
         </li>
 
         <!-- <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataChurch.churchlist') }}">
+            hlist') }}">
                 Church List
             </a>
         </li> -->
@@ -173,18 +173,18 @@
        {{-- Claims Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
-            <a class="nav-link fw-bold text-white" href="{{ route('dataOrganization.organizationlist') }}">
+            <a class="nav-link fw-bold text-white" href="{{ route('dataIncedentClaims.incidentlist') }}">
                <i class="fas fa-file-invoice-dollar fa-fw me-2"></i> Claims Request
             </a>
         </li>
 
         <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataOrganization.organizationlist') }}">
-                Incident Management
+            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.incidentlist') }}">
+                Incident Request
             </a>
         </li>
         <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataOrganization.organizationlist') }}">
+            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.addincidentrequest') }}">
                 Add Incident Request
             </a>
         </li>

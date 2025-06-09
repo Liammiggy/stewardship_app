@@ -6,7 +6,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PastorController;
 use App\Http\Controllers\ChurchController;
 use App\Http\Controllers\OrganizationController;
-
+use App\Http\Controllers\IncedentClaimsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +82,17 @@ Route::middleware('auth')->group(function () {
 
     });
 
+
+
+
+        Route::controller(IncedentClaimsController::class)->prefix('dataIncedentClaims')->group(function () {
+       
+        Route::get('addincidentrequest', 'addincidentrequest')->name('dataIncedentClaims.addincidentrequest');
+        Route::get('incidentlist', 'incidentlist')->name('dataIncedentClaims.incidentlist');
+        Route::get('edit', 'edit')->name('dataIncedentClaims.edit');
+
+
+    });
 
 
 
