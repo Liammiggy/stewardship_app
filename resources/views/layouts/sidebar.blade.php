@@ -16,7 +16,7 @@
    <li class="nav-item" style="background-color: #1E1E2D;">
       <a class="nav-link text-white" href="{{ route('dataMahasiswa') }}">
          <i class="fas fa-fw fa-address-book"></i> <!-- Member List -->
-         <span>Membership</span>
+         <span>Member List</span>
       </a>
    </li>
    <li class="nav-item" style="background-color: #1E1E2D;">
