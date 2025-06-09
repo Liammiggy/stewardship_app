@@ -54,10 +54,10 @@
                 <thead class="table-primary">
                     <tr><th><i class="fas fa-edit" title="Edit"></i></th>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Church Name</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>Church</th>                        
+                        <th>Pastor</th>                        
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -69,10 +69,10 @@
                             
                         </td>
                         <td>001</td>
-                        <td>John Doe</td>
+                        <td>Kings Church</td>
                         <td>Bogo City</td>
                         <td>123-456-7890</td>
-                        <td>Bogo Baptist</td>
+                        <td>Raymond Bolambao</td>
                          <td><span class="badge-active">Active</span></td>
                     </tr>
                    
@@ -84,10 +84,10 @@
                             
                         </td>
                         <td>002</td>
-                        <td>Monding</td>
+                        <td>Jesus Is Lord</td>
                         <td>Bogo City</td>
                         <td>123-456-7890</td>
-                        <td>Bogo Baptist</td>
+                        <td>Miguel Alvarina</td>
                          <td><span class="badge-active">Active</span></td>
                     </tr>
                    
