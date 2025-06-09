@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add Incident Request')
+@section('title', 'Releasing (Disursement)')
 @section('contents')
 <style>
    .section-body {
