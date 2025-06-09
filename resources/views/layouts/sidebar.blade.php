@@ -7,9 +7,19 @@
    <!-- <hr class="sidebar-divider my-0" style="border-color: #7C8DB5;"> -->
    <!-- Nav Item - Dashboard -->
    <div class="text-center d-none d-md-inline px-0">
-      <button id="sidebarToggle"     class="border-0"     style="      background-color: #7C8DB5;       width: 100%;       height: 40px;       color: white;       font-size: 18px; 
-         cursor: pointer;      border-radius: 0; /* no rounded corners */      display: flex;      align-items: center;      justify-content: center;    "    aria-label="Toggle sidebar"    title="Toggle sidebar"  >
-      <i></i>
+      <button id="sidebarToggle"     class="border-0"  
+         style="     
+          background-color: #7C8DB5;    
+          width: 100%;   
+          height: 40px; 
+          color: white; 
+          font-size: 18px; 
+          cursor: pointer;
+          border-radius: 0; /* no rounded corners */ 
+          display: flex;
+          lign-items: center;
+          justify-content: center; " aria-label="Toggle sidebar"    title="Toggle sidebar"  >
+          <i></i>
       </button>
    </div>
    <li class="nav-item" style="background-color: #1E1E2D;">
@@ -37,13 +47,12 @@
            <i class="fas fa-fw fa-user-plus me-2"></i> Add Member
          </a>
          </li> -->
- 
       <li class="nav-item mb-1" style="margin-left: 10px;">
          <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.addpayment') }}" style="font-size: 0.9rem;">
          <i class="fas fa-fw fa-file-upload me-2"></i> Payment
          </a>
       </li>
-           <li class="nav-item mb-1" style="margin-left: 10px;">
+      <li class="nav-item mb-1" style="margin-left: 10px;">
          <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.bulkupload') }}" style="font-size: 0.9rem;">
          <i class="fas fa-fw fa-file-upload me-2"></i> Bulk Upload
          </a>
