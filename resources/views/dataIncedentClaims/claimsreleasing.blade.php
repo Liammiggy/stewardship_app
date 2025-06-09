@@ -109,9 +109,9 @@
             </tbody>
          </table>
       </div>
-      <div class="amount-box d-flex justify-content-between align-items-center">
+      <div class="amount-box d-flex justify-content-between ">
          <div><strong>Total Amount Active Members</strong></div>
-         <div class="amount-highlight">₱49,225.00</div>
+         <div class="amount-highlight" >₱49,225.00</div>
       </div>
       <table class="table table-bordered table-summary mt-3">
          <thead>
