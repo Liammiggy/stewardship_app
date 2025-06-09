@@ -20,6 +20,11 @@ public function incidentlist()
 }
 
 
+public function claimsreleasing()
+{
+    return view('dataIncedentClaims.claimsreleasing');
+}
+
 public function edit()
 {
     return view('dataIncedentClaims.edit');

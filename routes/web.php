@@ -90,6 +90,7 @@ Route::middleware('auth')->group(function () {
         Route::get('addincidentrequest', 'addincidentrequest')->name('dataIncedentClaims.addincidentrequest');
         Route::get('incidentlist', 'incidentlist')->name('dataIncedentClaims.incidentlist');
         Route::get('edit', 'edit')->name('dataIncedentClaims.edit');
+        route::get('claimsreleasing', 'claimsreleasing')->name('dataIncedentClaims.claimsreleasing');
 
 
     });

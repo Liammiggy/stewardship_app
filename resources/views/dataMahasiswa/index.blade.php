@@ -78,7 +78,7 @@
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                            
-                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
+                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a>
                         </td>
                         <td><span class="badge-active">Active</span></td>
                     </tr>
@@ -96,7 +96,7 @@
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                            
-                           <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>                        </td>
+                           <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a>                        </td>
                         <td><span class="badge-inactive">Inactive</span></td>
 
                     </tr>
@@ -113,7 +113,7 @@
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
                            
-                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Payment</a>
+                            <a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a>
                          
                         </td>
                         <td><span class="badge-pending">Pending</span></td>
