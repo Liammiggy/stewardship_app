@@ -17,12 +17,18 @@ class MahasiswaController extends Controller
         return view('dataMahasiswa.index', compact('mahasiswa'));
     }
 
+
+
      public function memberlist()
 {
     $mahasiswa = Mahasiswa::orderBy('created_at', 'DESC')->get();
     return view('dataMahasiswa.memberlist', compact('mahasiswa'));
 }
 
+public function bulkupload()
+{
+    return view('dataMahasiswa.bulkupload');
+}
 
     /**
      * Show the form for creating a new resource.
@@ -31,6 +37,8 @@ class MahasiswaController extends Controller
     {
         return view('dataMahasiswa.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.

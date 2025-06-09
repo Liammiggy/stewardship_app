@@ -42,7 +42,9 @@
     </style>
 
     <div class="card">
+       
         <div class="card-body">
+       
             <div class="d-flex justify-content-between mb-3">
                 <input type="text" id="searchInput" class="form-control w-50" placeholder="Search members...">
                 <a href="{{ route('dataMahasiswa.create') }}" class="btn btn-success">+ Add Member</a>

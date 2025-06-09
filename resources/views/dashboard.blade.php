@@ -22,7 +22,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Mahasiswa (Total)</div>
+                                                Active Members (Total)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
                                         </div>
                                         <div class="col-auto">
@@ -40,7 +40,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Mahasiswa (Aktif)</div>
+                                                Adult (total)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">21,000</div>
                                         </div>
                                         <div class="col-auto">
@@ -58,7 +58,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tingkat Kelulusan
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Kids (total)
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -88,7 +88,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Mahasiswa (Tidak Aktif)</div>
+                                                Students (Total)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
@@ -110,7 +110,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Chart Jumlah Pendaftar Baru</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Membership Growth Bar Chart</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,7 +141,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Data Kelas Pendaftar</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Membership Growth Rate</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -164,13 +164,13 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Kelas Reguler
+                                            <i class="fas fa-circle text-primary"></i> Adult
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Kelas Karyawan
+                                            <i class="fas fa-circle text-success"></i> Kids
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Kelas RPL
+                                            <i class="fas fa-circle text-info"></i> Students
                                         </span>
                                     </div>
                                 </div>

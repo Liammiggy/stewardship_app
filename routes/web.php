@@ -43,6 +43,9 @@ Route::middleware('auth')->group(function () {
         Route::put('edit/{id}', 'update')->name('dataMahasiswa.update');
         Route::delete('destroy/{id}', 'destroy')->name('dataMahasiswa.destroy');
         Route::get('memberlist', 'memberlist')->name('dataMahasiswa.memberlist');
+       Route::get('bulkupload', 'bulkupload')->name('dataMahasiswa.bulkupload');
+
+
     });
  
 

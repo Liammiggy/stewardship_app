@@ -29,13 +29,16 @@
   </a>
 </li>
 
+<li class="nav-item" style="background-color: #1E1E2D;">
+  <a class="nav-link text-white" href="{{ route('dataMahasiswa.bulkupload') }}">
+    <i class="fas fa-fw fa-user-plus"></i>
+    <span>Bulk Upload</span>
+  </a>
+</li>
 
-   
-  
 
   <!-- Divider -->
   <!-- <hr class="sidebar-divider d-none d-md-block" style="border-color: #7C8DB5;"> -->
-
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
     <button  style=" background-color: #7C8DB5;"class="rounded-circle border-0" id="sidebarToggle"></button>
