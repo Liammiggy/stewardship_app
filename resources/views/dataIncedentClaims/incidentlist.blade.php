@@ -61,7 +61,7 @@
          </select>
          <div class="flex-grow-1"></div>
          <!-- This pushes the button to the right -->
-         <a href="{{ route('dataIncedentClaims.addincidentrequest') }}" class="btn btn-success">+ Add Claims Request</a>
+         <a href="{{ route('dataIncedentClaims.addincidentrequest') }}" class="btn btn-success">+ Claims Request</a>
       </div>
       <script>
          // Set actual current date text on the button + toggle sort arrow
