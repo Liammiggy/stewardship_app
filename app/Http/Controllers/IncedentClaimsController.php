@@ -29,6 +29,10 @@ public function edit()
 {
     return view('dataIncedentClaims.edit');
 }
+public function printpreview()
+{
+    return view('dataIncedentClaims.printpreview');
+}
 
 
 

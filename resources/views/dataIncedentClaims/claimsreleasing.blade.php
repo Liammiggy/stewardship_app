@@ -153,7 +153,11 @@
          <button type="submit" class="btn btn-success">Disburse</button>
          <button type="reset" class="btn btn-warning ml-2">Reset</button>
          <a href="{{ route('dataIncedentClaims.incidentlist') }}" class="btn btn-secondary ml-2">Back</a>
-         <button type="button" onclick="printClaim()" class="btn btn-outline-dark ml-2">  <i class="bi bi-printer"></i> Print View </button>
+         <!-- <button type="button" onclick="printClaim()" class="btn btn-outline-dark ml-2">  <i class="bi bi-printer"></i> Print View </button> -->
+         <a href="{{ route('dataIncedentClaims.printpreview') }}" target="_blank" class="btn btn-outline-dark ml-2">
+   <i class="bi bi-printer"></i> Print View
+</a>
+
       </div>
    </div>
 </form>

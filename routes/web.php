@@ -91,6 +91,7 @@ Route::middleware('auth')->group(function () {
         Route::get('incidentlist', 'incidentlist')->name('dataIncedentClaims.incidentlist');
         Route::get('edit', 'edit')->name('dataIncedentClaims.edit');
         route::get('claimsreleasing', 'claimsreleasing')->name('dataIncedentClaims.claimsreleasing');
+        Route::get('printpreview', 'printpreview')->name('dataIncedentClaims.printpreview');
 
 
     });
