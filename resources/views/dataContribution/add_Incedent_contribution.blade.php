@@ -41,7 +41,7 @@
         {{-- Filters --}}
         <div class="row align-items-center mb-3">
             <div class="col-md-4 mb-2">
-                <input type="text" id="searchInput" class="form-control" placeholder="Select Pastor...">
+                <input type="text" id="searchInput" class="form-control" placeholder="Select Representative...">
             </div>
             <div class="col-md-3 mb-2">
                 <select id="SavingsFilter" class="form-control">

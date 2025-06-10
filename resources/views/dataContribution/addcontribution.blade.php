@@ -20,8 +20,10 @@
                         <div class="mb-3">
                             <select name="savings_type" class="form-control" required>
                                 <option value="">Select Savings Type</option>
-                                <option value="Approved">College Education</option>
-                                <option value="For Release">Retirement</option>
+                                <option value="Approved">Wedding</option>
+                      <option value="Approved">Maternity</option>
+                    <option value="Approved">College Education</option>
+                    <option value="For Release">Retirement</option>
                             </select>
                         </div>
 

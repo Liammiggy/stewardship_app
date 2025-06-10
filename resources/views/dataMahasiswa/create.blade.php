@@ -96,7 +96,7 @@
                                 <input type="text" name="country" class="form-control" placeholder="Country">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="text" name="phone" class="form-control" placeholder="Phone Number">
+                                <input type="text" name="phone" class="form-control" placeholder="Mobile Number">
                             </div>
                         </div>
 
@@ -219,7 +219,7 @@
 
             ageInput.value = age;
             //60-65, 70-75, 80-85
-            // Show retirement warning if age is between 57 and 59
+            // Show retirement warning if age is between 57 and 59 5 Years in the system
             if (age >= 60 && age < 85) {
                 retirementWarning.classList.remove('d-none');
             } else {

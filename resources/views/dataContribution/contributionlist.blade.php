@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Invidual Savings & Contributions Posted')
+@section('title', 'Individual Savings & Contributions Posted')
 
 @section('contents')
 <style>
@@ -46,6 +46,8 @@
             <div class="col-md-3 mb-2">
                 <select id="SavingsFilter" class="form-control">
                     <option value="">Savings Type</option>
+                     <option value="Approved">Wedding</option>
+                      <option value="Approved">Maternity</option>
                     <option value="Approved">College Education</option>
                     <option value="For Release">Retirement</option>
                 </select>

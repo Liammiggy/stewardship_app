@@ -66,7 +66,7 @@
                      <input type="text" name="Incedent" class="form-control" placeholder="Incedent Type">
                   </div>
                   <div class="col-md-6 mb-3">
-                     <input type="text" name="Pastor" class="form-control" placeholder="Pastor">
+                     <input type="text" name="Representative" class="form-control" placeholder="Representative">
                   </div>
                </div>
                 <div class="row">
@@ -76,11 +76,15 @@
                   <div class="col-md-6 mb-3">
                      <select name="pastor" class="form-control">
                         <option value="">Status</option>
-                        <option value="Bogo Bap">Approved</option>
-                        <option value="San Vicente">For Release</option>
+                        
+                        <!-- Releasing - 7 Business Days - 30 Days - 70 Days  - note -->
+                        <option value="San Vicente">Releasing 7 Business Days</option>
+                        <option value="San Vicente">Releasing 30 Days</option>
+                        <option value="San Vicente">Releasing 70 Days</option>
                         <option value="San Vicente">Claimed</option>
                         <option value="San Vicente">Pending</option>
                         <option value="San Vicente">Declined</option>
+                        <option value="Bogo Bap">Approved</option>
                         
                      </select>
                   </div>
