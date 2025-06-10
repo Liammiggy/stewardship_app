@@ -51,18 +51,46 @@
                                 <input type="text" name="first_name" class="form-control" placeholder="First Name">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                                <input type="text" name="middle_name" class="form-control" placeholder="Middle Name">
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <input type="text" name="parents_name" class="form-control" placeholder="Parent's Name (for students/kids)">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                               <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select name="Suffixes" class="form-control">
+                                <option value="">Select Suffixes</option>
+                                <option value=""></option>
+                                <option value="">Jr</option>
+                                <option value="">Sr</option>                                
+                                <option value="">III</option>
+                                
+                            </select>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <input type="text" name="address" class="form-control" placeholder="Address">
-                        </div>
+                      
+                      
 
+                         <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="parents_name" class="form-control" placeholder="Parent's Name (for students/kids)">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="immediate_contact" class="form-control" placeholder="Immediate Contact">
+                            </div>
+                        </div>
+                      <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="address" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="Geography" class="form-control" placeholder="Geography">
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <input type="text" name="country" class="form-control" placeholder="Country">
@@ -72,17 +100,27 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="facebook" class="form-control" placeholder="Facebook">
+                            </div>
+                        </div>
+
+<!-- 
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control" placeholder="Email">
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="birthday" class="form-label">Birthday</label>
+                                <!-- <label for="birthday" class="form-label">Birthday</label> -->
                                 <input type="date" name="birthday" id="birthday" class="form-control">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="age" class="form-label">Age</label>
+                                <!-- <label for="age" class="form-label">Age</label> -->
                                 <input type="text" name="age" id="age" class="form-control" readonly>
                             </div>
 
@@ -102,17 +140,14 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                            <input type="text" name="geography" class="form-control" placeholder="Geography">
-                        </div>
-
+                       
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <select name="pastor" class="form-control">
-                                    <option value="">Select Pastor</option>
-                                    <option value="Pastor John">Pastor John</option>
-                                    <option value="Pastor Mary">Pastor Mary</option>
-                                    <option value="Pastor Lee">Pastor Lee</option>
+                                    <option value="">Select Representative</option>
+                                    <option value="Pastor John">Pastor</option>
+                                    <option value="Pastor Mary">Individual</option>
+                                    <option value="Pastor Lee">Institution</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -159,7 +194,8 @@
 
                         <!-- Retirement Warning -->
                         <div id="retirementWarning" class="alert alert-warning mt-3 d-none">
-                            ⚠️ This person is within 3 years of retirement (age 60 in the Philippines).
+                            ⚠️ This person is within years of retirement.
+                        <!-- ⚠️ This person is within 3 years of retirement (age 60 in the Philippines). -->
                         </div>
                     </div>
                 </div>
@@ -182,9 +218,9 @@
             }
 
             ageInput.value = age;
-
+            //60-65, 70-75, 80-85
             // Show retirement warning if age is between 57 and 59
-            if (age >= 57 && age < 60) {
+            if (age >= 60 && age < 85) {
                 retirementWarning.classList.remove('d-none');
             } else {
                 retirementWarning.classList.add('d-none');
