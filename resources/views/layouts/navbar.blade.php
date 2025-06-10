@@ -75,7 +75,7 @@
       <!-- Dropdown - Alerts -->
       <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
         <h6 class="dropdown-header">
-          Pusat Notifikasi
+          Notifications
         </h6>
         <a class="dropdown-item d-flex align-items-center" href="#">
           <div class="mr-3">
@@ -84,8 +84,8 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Mei 19, 2024</div>
-            <span class="font-weight-bold">Data Mahasiswa baru berhasil ditambahkan.</span>
+            <div class="small text-gray-500">May 19, 2025</div>
+            <span class="font-weight-bold">New Claims Request Submitted</span>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -95,8 +95,8 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Mei 11, 2024</div>
-            <span class="font-weight-bold">Data Mahasiswa (Aktif) berhasil diperbarui.</span>
+            <div class="small text-gray-500">May 27, 2025</div>
+            <span class="font-weight-bold">10 New Members Added</span>
           </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -106,11 +106,11 @@
             </div>
           </div>
           <div>
-            <div class="small text-gray-500">Mei 2, 2024</div>
-            <span class="font-weight-bold">Data Mahasiswa (Tidak Aktif) berhasil diperbarui.</span>
+            <div class="small text-gray-500">May 30, 2025</div>
+            <span class="font-weight-bold">5 Claims Request has been Decline</span>
           </div>
         </a>
-        <a class="dropdown-item text-center small text-gray-500" href="#">Lihat Semua Notifikasi</a>
+        <a class="dropdown-item text-center small text-gray-500" href="#">View All Notifications</a>
       </div>
     </li>
   
