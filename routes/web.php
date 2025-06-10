@@ -101,6 +101,8 @@ Route::middleware('auth')->group(function () {
         Route::controller(ContributionController::class)->prefix('dataContribution')->group(function () {
        
         Route::get('addcontribution', 'addcontribution')->name('dataContribution.addcontribution');
+        Route::get('add_Incedent_contribution', 'add_Incedent_contribution')->name('dataContribution.add_Incedent_contribution');
+         Route::get('add_Incedent_contribution_payment', 'add_Incedent_contribution_payment')->name('dataContribution.add_Incedent_contribution_payment');
         Route::get('contributionlist', 'contributionlist')->name('dataContribution.contributionlist');
         Route::get('edit', 'edit')->name('dataContribution.edit');       
         Route::get('printpreview', 'printpreview')->name('dataContribution.printpreview');

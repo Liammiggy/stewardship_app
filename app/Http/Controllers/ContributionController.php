@@ -14,6 +14,20 @@ public function addcontribution()
     return view('dataContribution.addcontribution');
 }
 
+public function add_Incedent_contribution()
+{
+    return view('dataContribution.add_Incedent_contribution');
+}
+
+
+public function add_Incedent_contribution_payment()
+{
+    return view('dataContribution.add_Incedent_contribution_payment');
+}
+
+
+
+
 public function contributionlist()
 {
     return view('dataContribution.contributionlist');

@@ -39,56 +39,65 @@
             padding: 5px 10px;
             border-radius: 12px;
         }
+
+        @media (max-width: 768px) {
+            .responsive-search {
+                flex-direction: column !important;
+                gap: 10px;
+            }
+
+            .responsive-search input {
+                width: 100% !important;
+            }
+
+            .responsive-search a {
+                width: auto;
+                align-self: flex-start;
+            }
+        }
     </style>
 
     <div class="card">
-       
         <div class="card-body">
-       
-            <div class="d-flex justify-content-between mb-3">
-                <input type="text" id="searchInput" class="form-control w-50" placeholder="Search churches...">
+            <div class="d-flex justify-content-between mb-3 responsive-search">
+                <input type="text" id="searchInput" class="form-control w-50" placeholder="Search organizations...">
                 <a href="{{ route('dataOrganization.addorganization') }}" class="btn btn-success">+ Add Organization</a>
             </div>
 
-            <table class="table table-hover table-custom" id="membersTable">
-                <thead class="table-primary">
-                    <tr><th><i class="fas fa-edit" title="Edit"></i></th>
-                        <th>ID</th>
-                        <th>Orgnization Name</th>
-                        <th>Owner Representative</th>
-                        <th>Address</th>
-                        <th>Phone</th>   
-                        <th>Email</th>                     
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                            <a href="{{ route('dataOrganization.edit') }}" class="btn btn-warning btn-sm">...</a>
-                            
-                        </td>
-                        <td>001</td>
-                        <td>Stewardship</td>
-                        <td>Sir Ronnie</td>
-                        <td>Bogo City</td>
-                        <td>123-456-7890</td>
-                        <td>Stewardship@gmail.com</td>
-                      
-                         <td><span class="badge-active">Active</span></td>
-                    </tr>
-                   
-
-                     
-                   
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover table-custom" id="membersTable">
+                    <thead class="table-primary">
+                        <tr>
+                            <th><i class="fas fa-edit" title="Edit"></i></th>
+                            <th>ID</th>
+                            <th>Organization Name</th>
+                            <th>Owner Representative</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="{{ route('dataOrganization.edit') }}" class="btn btn-warning btn-sm">...</a>
+                            </td>
+                            <td>001</td>
+                            <td>Stewardship</td>
+                            <td>Sir Ronnie</td>
+                            <td>Bogo City</td>
+                            <td>123-456-7890</td>
+                            <td>Stewardship@gmail.com</td>
+                            <td><span class="badge-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
-        // Simple client-side search filter
         document.getElementById('searchInput').addEventListener('keyup', function () {
             let filter = this.value.toLowerCase();
             let rows = document.querySelectorAll('#membersTable tbody tr');
