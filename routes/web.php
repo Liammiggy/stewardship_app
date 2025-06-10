@@ -7,6 +7,7 @@ use App\Http\Controllers\PastorController;
 use App\Http\Controllers\ChurchController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\IncedentClaimsController;
+use App\Http\Controllers\ContributionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,6 +98,15 @@ Route::middleware('auth')->group(function () {
     });
 
 
+        Route::controller(ContributionController::class)->prefix('dataContribution')->group(function () {
+       
+        Route::get('addcontribution', 'addcontribution')->name('dataContribution.addcontribution');
+        Route::get('contributionlist', 'contributionlist')->name('dataContribution.contributionlist');
+        Route::get('edit', 'edit')->name('dataContribution.edit');       
+        Route::get('printpreview', 'printpreview')->name('dataContribution.printpreview');
+
+
+    });
 
 
 

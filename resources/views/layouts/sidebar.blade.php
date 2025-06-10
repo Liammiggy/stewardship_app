@@ -199,13 +199,13 @@
            {{-- Contribution Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
-            <a class="nav-link fw-bold text-white" href="{{ route('dataIncedentClaims.incidentlist') }}">
+            <a class="nav-link fw-bold text-white" href="{{ route('dataContribution.contributionlist') }}">
              <i class="fas fa-money-bill-wave fa-fw me-2"></i> Contribution
             </a>
         </li>
 
         <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.incidentlist') }}">
+            <a class="nav-link text-secondary ps-3" href="{{ route('dataContribution.contributionlist') }}">
                 Contributions
             </a>
         </li>
