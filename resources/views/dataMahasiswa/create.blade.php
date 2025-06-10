@@ -95,10 +95,10 @@
 
                         <div class="mb-3">
                             <select name="role" class="form-control">
-                                <option value="">Select Role</option>
-                                <option value="adult">Adult</option>
-                                <option value="kid">Kid</option>
-                                <option value="student">Student</option>
+                                <option value="">Membership type</option>
+                                <option value="adult">Initial</option>
+                                <option value="kid">Renewal</option>
+                                
                             </select>
                         </div>
 
