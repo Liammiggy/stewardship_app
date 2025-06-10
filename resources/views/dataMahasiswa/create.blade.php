@@ -85,6 +85,12 @@
                                 <label for="age" class="form-label">Age</label>
                                 <input type="text" name="age" id="age" class="form-control" readonly>
                             </div>
+
+                            <!-- returement age calulcation current age /retirment age -->
+                             <!-- <div class="col-md-6 mb-3">
+                                <label for="age" class="form-label">Retirement Age</label>
+                                <input type="text" name="age" id="age"  placeholder="Retirement age 65"; class="form-control" readonly>
+                            </div> -->
                         </div>
 
                         <div class="mb-3">
@@ -127,7 +133,23 @@
                                 <input type="text" name="beneficiary_2" class="form-control" placeholder="Beneficiary 2">
                             </div>
                         </div>
+                         <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="beneficiary_1" class="form-control" placeholder="Beneficiary 3">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="beneficiary_2" class="form-control" placeholder="Beneficiary 4">
+                            </div>
+                        </div>
 
+                         <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="beneficiary_1" class="form-control" placeholder="Beneficiary 5">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="beneficiary_2" class="form-control" placeholder="Beneficiary 6">
+                            </div>
+                        </div>
                         <!-- Buttons -->
                         <div class="text-left mt-4">
                             <button type="submit" class="btn btn-success">Submit</button>
