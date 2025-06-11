@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Churches')
+@section('title', 'Representatives')
 
 @section('contents')
     <style>
@@ -57,7 +57,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3 flex-wrap">
                 <input type="text" id="searchInput" class="form-control w-50 mb-2 mb-md-0" placeholder="Search churches...">
-                <a href="{{ route('dataChurch.addchurch') }}" class="btn btn-success">+ Add Church</a>
+                <a href="{{ route('dataRepresentative.representativelistAdd') }}" class="btn btn-success">+ Add Representative</a>
             </div>
 
             <div class="table-responsive">
@@ -75,7 +75,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="{{ route('dataChurch.edit') }}" class="btn btn-warning btn-sm">...</a></td>
+                            <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
                             <td>001</td>
                             <td>Kings Church</td>
                             <td>Bogo City</td>
@@ -84,7 +84,7 @@
                             <td><span class="badge-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td><a href="{{ route('dataChurch.edit') }}" class="btn btn-warning btn-sm">...</a></td>
+                            <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
                             <td>002</td>
                             <td>Jesus Is Lord</td>
                             <td>Bogo City</td>

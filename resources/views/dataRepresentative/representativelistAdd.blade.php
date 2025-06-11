@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add New Church')
+@section('title', 'Add New Representative')
 @section('contents')
 <!-- <h1 class="mb-0">Add Member Information</h1> -->
 <!-- <hr /> -->
@@ -20,7 +20,7 @@
       <script>
          const photoInput = document.getElementById('photoInput');
          const photoPreview = document.getElementById('photoPreview');
-         
+
          photoInput.addEventListener('change', function() {
              const file = this.files[0];
              if (file) {
@@ -66,16 +66,16 @@
                         <option value="">Pastor</option>
                         <option value="Bogo Bap">Miguel Alvarina</option>
                          <option value="Bogo Bap">Raymond Bolambao</option>
-                      
+
                      </select>
                   </div>
                </div>
-              
+
                <!-- Buttons -->
                <div class="text-left mt-4">
                   <button type="submit" class="btn btn-success">Submit</button>
                   <button type="reset" class="btn btn-warning ml-2">Reset</button>
-                  <a href="{{ route('dataChurch.churchlist') }}" class="btn btn-secondary ml-2">Back</a>
+                  <a href="{{ route('dataRepresentative.representativelist') }}" class="btn btn-secondary ml-2">Back</a>
                </div>
                <!-- Retirement Warning -->
                <div id="retirementWarning" class="alert alert-warning mt-3 d-none">

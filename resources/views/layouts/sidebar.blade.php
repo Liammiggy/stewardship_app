@@ -33,7 +33,7 @@
  .sidebar.toggled {
         overflow: visible;
         width: 3rem !important;
-   
+
 }
     #sidebarToggle {
         background-color:red;
@@ -73,7 +73,7 @@
             <div class="sidebar-brand-text mx-2">Stewardship</div>
         </a>
         <button id="sidebarToggle" aria-label="Toggle sidebar">
-           
+
         </button>
     </div>
  <hr class="my-4 border-top border-secondary w-100">
@@ -116,7 +116,7 @@
 
 
 
-    {{-- Pastor Section --}}
+    {{-- Pastor Section
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataPastor.pastorlist') }}">
@@ -130,16 +130,16 @@
             </a>
         </li> -->
 
-       
+
     </ul>
 
-
+--}}
 
        {{-- Church Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
-            <a class="nav-link fw-bold text-white" href="{{ route('dataChurch.churchlist') }}">
-                <i class="fas fa-church fa-fw me-2"></i> Churches
+            <a class="nav-link fw-bold text-white" href="{{ route('dataRepresentative.representativelist') }}">
+                <i class="fas fa-church fa-fw me-2"></i> Representative
             </a>
         </li>
 
@@ -149,10 +149,10 @@
             </a>
         </li> -->
 
-       
+
     </ul>
-    
-       {{-- Org Section --}}
+
+       {{-- Org Section
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
             <a class="nav-link fw-bold text-white" href="{{ route('dataOrganization.organizationlist') }}">
@@ -166,10 +166,10 @@
             </a>
         </li> -->
 
-       
-    </ul>
 
-    
+    </ul>
+--}}
+
        {{-- Claims Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
@@ -195,7 +195,7 @@
         </li>
 
     </ul>
-    
+
            {{-- Contribution Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
@@ -223,7 +223,7 @@
     </ul>
 
 
-    
+
            {{-- Reports Section --}}
     <ul class="nav flex-column px-0" style="width:100%;">
         <li class="nav-item mb-2">
@@ -248,7 +248,7 @@
         </li> -->
 
     </ul>
-      
+
 </ul>
 
 {{-- ------------- SCRIPTS ------------- --}}
