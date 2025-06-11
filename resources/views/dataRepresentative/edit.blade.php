@@ -36,50 +36,70 @@
              }
          });
       </script>
-      <!-- Right Card: Member Info -->
+      <!-- Right Card: Representative Info -->
       <div class="col-md-8">
          <div class="card h-100">
-            <div class="card-header">Church Information</div>
+            <div class="card-header">Representative Information</div>
             <div class="card-body">
+
                <div class="row">
                   <div class="col-md-6 mb-3">
-                     <input type="text" name="church_name" class="form-control" placeholder="Church Name">
+                     <select class="form-control" id="repType" required name="type">
+                        <option value="">-- Select Representative Type --</option>
+                        <option value="Pastor">Pastor</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Institution">Institution</option>
+                     </select>
                   </div>
                   <div class="col-md-6 mb-3">
-                     <input type="text" name="address" class="form-control" placeholder="Address">
+                     <input type="text" name="Representative_name" class="form-control" placeholder="Representative Name">
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-md-6 mb-3">
-                     <input type="text" name="Province" class="form-control" placeholder="Province">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                     <input type="text" name="country" class="form-control" placeholder="Country">
-                  </div>
-               </div>
+
+               <!-- Contact Info -->
                <div class="row">
                   <div class="col-md-6 mb-3">
                      <input type="text" name="Phone" class="form-control" placeholder="Phone">
                   </div>
                   <div class="col-md-6 mb-3">
-                     <select name="pastor" class="form-control">
-                        <option value="">Pastor</option>
-                        <option value="Bogo Bap">Miguel Alvarina</option>
-                         <option value="Bogo Bap">Raymond Bolambao</option>
+                     <input type="email" name="Email" class="form-control" placeholder="Email">
+                  </div>
+               </div>
 
-                     </select>
+
+               <!-- Address -->
+               <div class="row">
+                  <div class="col-md-6 mb-3">
+                     <input type="text" name="Street" class="form-control" placeholder="Street">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <input type="text" name="Barangay" class="form-control" placeholder="Barangay">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 mb-3">
+                     <input type="text" name="Municipality" class="form-control" placeholder="Municipality / City">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <input type="text" name="Province" class="form-control" placeholder="Province">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 mb-3">
+                     <input type="text" name="Zipcode" class="form-control" placeholder="Zip Code">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <input type="text" name="Institution_Name" class="form-control" placeholder="Institution Name">
                   </div>
                </div>
 
                <!-- Buttons -->
                <div class="text-left mt-4">
                   <button type="submit" class="btn btn-success">Submit</button>
-                      <button type="reset" class="btn btn-warning ml-2"
-                            onclick="return confirm('Do you want to delete this Church?')">
-                            Delete
-                        </button>
+                  <button type="reset" class="btn btn-warning ml-2">Reset</button>
                   <a href="{{ route('dataRepresentative.representativelist') }}" class="btn btn-secondary ml-2">Back</a>
                </div>
+
                <!-- Retirement Warning -->
                <div id="retirementWarning" class="alert alert-warning mt-3 d-none">
                   ⚠️ This person is within 3 years of retirement (age 60 in the Philippines).

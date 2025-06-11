@@ -66,10 +66,10 @@
                         <tr>
                             <th><i class="fas fa-edit" title="Edit"></i></th>
                             <th>ID</th>
-                            <th>Church Name</th>
-                            <th>Address</th>
+                            <th>Type</th>
+                            <th>Representative Name</th>
+                            <th>Affiliation</th>
                             <th>Phone</th>
-                            <th>Pastor</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -77,19 +77,19 @@
                         <tr>
                             <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
                             <td>001</td>
-                            <td>Kings Church</td>
-                            <td>Bogo City</td>
-                            <td>123-456-7890</td>
-                            <td>Raymond Bolambao</td>
+                            <td>Pastor</td>
+                            <td>Miguel Alvarina</td>
+                            <td>Jesus Is Lord</td>
+                            <td>09456379465</td>
                             <td><span class="badge-active">Active</span></td>
                         </tr>
                         <tr>
                             <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
                             <td>002</td>
-                            <td>Jesus Is Lord</td>
-                            <td>Bogo City</td>
-                            <td>123-456-7890</td>
-                            <td>Miguel Alvarina</td>
+                            <td>Institution</td>
+                            <td>Raymonding Bolambao</td>
+                            <td>San Vicente Parish Church</td>
+                            <td>09456379467</td>
                             <td><span class="badge-active">Active</span></td>
                         </tr>
                     </tbody>
