@@ -11,7 +11,7 @@
            <!-- Left Card: Photo Upload -->
 <div class="col-md-4">
     <div class="card h-80">
-        <div class="card-header">Photo</div>
+        <div class="card-header bg-primary text-white">Photo</div>
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <input type="file" name="photo" accept="image/*" class="form-control mb-3" id="photoInput">
             <small class="text-muted">Upload member photo</small>
@@ -44,7 +44,7 @@
             <!-- Right Card: Member Info -->
             <div class="col-md-8">
                 <div class="card h-100">
-                    <div class="card-header">Member Information</div>
+                    <div class="card-header bg-primary text-white">Member Information</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -65,15 +65,15 @@
                                 <option value="">Select Suffixes</option>
                                 <option value=""></option>
                                 <option value="">Jr</option>
-                                <option value="">Sr</option>                                
+                                <option value="">Sr</option>
                                 <option value="">III</option>
-                                
+
                             </select>
                             </div>
                         </div>
 
-                      
-                      
+
+
 
                          <div class="row">
                             <div class="col-md-6 mb-3">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
 
-<!-- 
+<!--
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control" placeholder="Email">
                         </div> -->
@@ -136,11 +136,11 @@
                                 <option value="">Membership type</option>
                                 <option value="adult">Initial</option>
                                 <option value="kid">Renewal</option>
-                                
+
                             </select>
                         </div>
 
-                       
+<!--
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <select name="pastor" class="form-control">
@@ -158,7 +158,83 @@
                                     <option value="Org C">Org C</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <div class="card">
+
+
+    <div class="card-header bg-primary text-white">
+        Representative Details
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <!-- First Dropdown: Type Selector -->
+            <div class="col-md-6 mb-3">
+                <!-- <label for="repType" class="form-label">Select Type</label> -->
+                <select id="repType" class="form-control" required>
+                    <option value="">Select Representative Type</option>
+                    <option value="Pastor">Pastor</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Institution">Institution</option>
+                </select>
+            </div>
+
+            <!-- Second Dropdown: Dynamic Based on First -->
+            <div class="col-md-6 mb-3">
+                <!-- <label for="repSelect" class="form-label">Select Representative</label> -->
+                <select name="representative" id="repSelect" class="form-control" required>
+                    <option value="">Select Representative</option>
+                    <!-- Options will be dynamically injected -->
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<script>
+    const repType = document.getElementById('repType');
+    const repSelect = document.getElementById('repSelect');
+
+    const pastors = [
+        { value: 'Pastor John', label: 'Pastor John' },
+        { value: 'Pastor Mary', label: 'Pastor Mary' },
+        { value: 'Pastor Lee', label: 'Pastor Lee' }
+    ];
+
+    const institutions = [
+        { value: 'Org Rep A', label: 'Org Rep A - Org A' },
+        { value: 'Org Rep B', label: 'Org Rep B - Org B' },
+        { value: 'Org Rep C', label: 'Org Rep C - Org C' }
+    ];
+
+    const individuals = [
+        { value: 'Stewardship 1', label: 'Stewardship 1' },
+        { value: 'Stewardship 2', label: 'Stewardship 2' },
+        { value: 'Stewardship 3', label: 'Stewardship 3' }
+    ];
+
+    repType.addEventListener('change', function () {
+        const selectedType = this.value;
+        repSelect.innerHTML = '<option value="">Select Representative</option>'; // Clear old options
+
+        let options = [];
+
+        if (selectedType === 'Pastor') {
+            options = pastors;
+        } else if (selectedType === 'Institution') {
+            options = institutions;
+        } else if (selectedType === 'Individual') {
+            options = individuals;
+        }
+
+        options.forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt.value;
+            option.textContent = opt.label;
+            repSelect.appendChild(option);
+        });
+    });
+</script>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">

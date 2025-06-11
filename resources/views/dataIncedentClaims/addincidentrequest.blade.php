@@ -79,8 +79,9 @@
                         
                         <!-- Releasing - 7 Business Days - 30 Days - 70 Days  - note -->
                         <option value="San Vicente">Releasing 7 Business Days</option>
-                        <option value="San Vicente">Releasing 30 Days</option>
+                        <option value="San Vicente">30 Days (Final Releasing)  </option>
                         <option value="San Vicente">Releasing 70 Days</option>
+                 
                         <option value="San Vicente">Claimed</option>
                         <option value="San Vicente">Pending</option>
                         <option value="San Vicente">Declined</option>
@@ -156,7 +157,7 @@
         <div class="card-body">
        
             <div class="d-flex justify-content-between mb-3">
-                <h3> Selected Member's Unpaid Incident Contributions</h3>
+                <h3> Selected Member's Misgiving Incident Contributions</h3>
             </div>
 
             <table class="table table-hover table-custom" id="membersTable">

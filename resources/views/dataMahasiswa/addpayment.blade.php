@@ -13,7 +13,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center">
                         <!-- Photo preview -->
                         <img id="photoPreview" src="https://static.vecteezy.com/system/resources/thumbnails/039/845/042/small_2x/male-default-avatar-profile-gray-picture-grey-photo-placeholder-gray-profile-anonymous-face-picture-illustration-isolated-on-white-background-free-vector.jpg" alt="Photo Preview" class="img-fluid mt-3" style="max-height: 300px; border-radius: 8px;" />
-                        
+
                         <!-- Hidden member photos -->
                         <img id="memberPhotoJohnDoe" src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="John Doe" style="display:none;" />
                         <img id="memberPhotoJaneSmith" src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="Jane Smith" style="display:none;" />
@@ -36,10 +36,11 @@
 
                         <div class="mb-3">
                             <select name="savings_type" class="form-control" required>
-                                <option value="">Select Savings Type</option>
-                                <option value="Regular">Regular</option>
-                                <option value="Time Deposit">Time Deposit</option>
-                                <option value="Special">Special</option>
+                                <option value="">Savings Type</option>
+                                <option value="Approved">Wedding</option>
+                                <option value="Approved">Maternity</option>
+                                <option value="Approved">College Education</option>
+                                <option value="For Release">Retirement</option>
                             </select>
                         </div>
 

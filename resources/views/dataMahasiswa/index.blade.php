@@ -77,7 +77,7 @@
                             <th>Name</th>
                             <th>Retirement Age</th>
                             <th>Phone</th>
-                            <th>Pastor</th>
+                            <th>Representative</th>
                             <th>Action</th>
                             <th>Status</th>
                         </tr>
