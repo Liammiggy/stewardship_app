@@ -3,6 +3,8 @@
 @section('title', 'Add New Member')
 
 @section('contents')
+
+
 <form action="{{ route('dataMahasiswa.store') }}" method="POST" enctype="multipart/form-data" id="memberForm">
     @csrf
     <div class="row">
@@ -92,7 +94,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <select name="role" class="form-control">
+                        <select name="membership_type" class="form-control">
                             <option value="">Membership type</option>
                             <option value="initial">Initial</option>
                             <option value="renewal">Renewal</option>

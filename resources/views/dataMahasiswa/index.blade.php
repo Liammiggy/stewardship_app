@@ -3,6 +3,14 @@
 @section('title', 'Memberships')
 
 @section('contents')
+
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
     <style>
         table.table-custom tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -74,11 +82,17 @@
                         <tr>
                             <th><i class="fas fa-edit" title="Edit"></i></th>
                             <th>ID</th>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Retirement Age</th>
+                            <th>Full Name</th>
                             <th>Phone</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <!-- <th>Retirement Age</th> -->
+                            <th>Type</th>
                             <th>Representative</th>
+
+
+
                             <th>Action</th>
                             <th>Status</th>
                         </tr>
@@ -92,14 +106,21 @@
                                     </a>
                                 </td>
                                 <td>{{ $mhs->id }}</td>
-                                <td>{{ $mhs->first_name }}</td>
-                                <td>{{ $mhs->last_name }}</td>
-                                <td>{{ $mhs->retirement_age ?? 'N/A' }}</td>
+                                <td>{{ trim($mhs->first_name . ' ' . ($mhs->middle_name ?? '') . ' ' . $mhs->last_name . ' ' . $mhs->suffixes) }}</td>
+                                <td>{{ $mhs->address }}</td>
+                                <td>{{ $mhs->geography }}</td>
+                                <td>{{ $mhs->country }}</td>
+
+                                <!-- <td>{{ $mhs->first_name }}</td>
+                                <td>{{ $mhs->last_name }}</td> -->
                                 <td>{{ $mhs->phone }}</td>
+                                <!-- <td>{{ $mhs->retirement_age ?? 'N/A' }}</td> -->
+
+                                <td>{{ $mhs->membership_type ?? '—' }}</td>
                                 <td>{{ $mhs->representative_name ?? '—' }}</td>
                                 <td>
                                     <a href="{{ route('dataMahasiswa.addpayment', $mhs->id) }}" class="btn btn-success btn-sm">
-                                        Add Contribution
+                                        Payment
                                     </a>
                                 </td>
                                 <td>

@@ -15,17 +15,17 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-       $members = Member::orderBy('created_at', 'DESC')->get();
+       $members = Member::orderBy('created_at', 'Asc')->get();
     return view('dataMahasiswa.index', compact('members'));
     }
 
 
 
-     public function memberlist()
-{
-    $mahasiswa = Mahasiswa::orderBy('created_at', 'DESC')->get();
-    return view('dataMahasiswa.memberlist', compact('mahasiswa'));
-}
+//      public function memberlist()
+// {
+//     $mahasiswa = Mahasiswa::orderBy('created_at', 'Asc')->get();
+//     return view('dataMahasiswa.memberlist', compact('mahasiswa'));
+// }
 
 public function bulkupload()
 {
@@ -87,12 +87,24 @@ public function store(Request $request)
         'email' => 'nullable|email|max:255',
         'facebook' => 'nullable|string|max:255',
         'birthday' => 'nullable|date',
-        'role' => 'required|string',
+        'membership_type' => 'required|string',
         'representative_type' => 'required|in:Pastor,Institution,Individual',
         'representative_name' => 'required|string|max:255',
         'beneficiaries_1' => 'nullable|array',
         'beneficiaries_2' => 'nullable|string|max:255',
     ]);
+
+    // Check for duplicate member
+    $duplicate = Member::where('first_name', $validated['first_name'])
+        ->where('middle_name', $validated['middle_name'])
+        ->where('last_name', $validated['last_name'])
+        ->exists();
+
+    if ($duplicate) {
+        return redirect()->back()
+            ->withInput()
+            ->withErrors(['duplicate' => 'A member with the same name already exists.']);
+    }
 
     if ($request->hasFile('photo')) {
         $validated['photo'] = $request->file('photo')->store('photos', 'public');
@@ -107,14 +119,12 @@ public function store(Request $request)
     $validated['beneficiary_5'] = $beneficiaries[4] ?? null;
     $validated['beneficiary_6'] = $beneficiaries[5] ?? null;
 
-
-
-
     Member::create($validated);
 
-   return redirect()->route('dataMahasiswa.index')->with('success', 'Member successfully added!');
+    return redirect()->route('dataMahasiswa.index')->with('success', 'Member successfully added!');
 
 
 }
+
 
 }
