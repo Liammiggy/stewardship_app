@@ -76,14 +76,22 @@ Route::middleware('auth')->group(function () {
     // });
 
 
-      Route::controller(RepresentativeController::class)->prefix('dataRepresentative')->group(function () {
+    //   Route::controller(RepresentativeController::class)->prefix('dataRepresentative')->group(function () {
 
+    //     Route::get('representativelistAdd', 'representativelistAdd')->name('dataRepresentative.representativelistAdd');
+    //     Route::get('representativelist', 'representativelist')->name('dataRepresentative.representativelist');
+    //     Route::get('edit', 'edit')->name('dataRepresentative.edit');
+
+
+    // });
+
+        Route::controller(RepresentativeController::class)->prefix('dataRepresentative')->group(function () {
         Route::get('representativelistAdd', 'representativelistAdd')->name('dataRepresentative.representativelistAdd');
         Route::get('representativelist', 'representativelist')->name('dataRepresentative.representativelist');
         Route::get('edit', 'edit')->name('dataRepresentative.edit');
-
-
+        Route::post('store', 'store')->name('dataRepresentative.store'); // <-- ADD THIS
     });
+
 
         Route::controller(OrganizationController::class)->prefix('dataOrganization')->group(function () {
 

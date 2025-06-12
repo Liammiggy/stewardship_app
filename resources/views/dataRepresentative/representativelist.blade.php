@@ -3,6 +3,13 @@
 @section('title', 'Representatives')
 
 @section('contents')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
     <style>
         table.table-custom tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -56,7 +63,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3 flex-wrap">
-                <input type="text" id="searchInput" class="form-control w-50 mb-2 mb-md-0" placeholder="Search churches...">
+                <input type="text" id="searchInput" class="form-control w-50 mb-2 mb-md-0" placeholder="Search Representative...">
                 <a href="{{ route('dataRepresentative.representativelistAdd') }}" class="btn btn-success">+ Add Representative</a>
             </div>
 
@@ -74,39 +81,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
-                            <td>001</td>
-                            <td>Pastor</td>
-                            <td>Miguel Alvarina</td>
-                            <td>Jesus Is Lord</td>
-                            <td>09456379465</td>
-                            <td><span class="badge-active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="{{ route('dataRepresentative.edit') }}" class="btn btn-warning btn-sm">...</a></td>
-                            <td>002</td>
-                            <td>Institution</td>
-                            <td>Raymonding Bolambao</td>
-                            <td>San Vicente Parish Church</td>
-                            <td>09456379467</td>
-                            <td><span class="badge-active">Active</span></td>
-                        </tr>
+                        @foreach ($representatives as $rep)
+                            <tr>
+                                <td>
+                                    <a href="{{ route('dataRepresentative.edit', ['id' => $rep->id]) }}" class="btn btn-warning btn-sm">...</a>
+                                </td>
+                                <td>{{ str_pad($rep->id, 3, '0', STR_PAD_LEFT) }}</td>
+                                <td>{{ $rep->type }}</td>
+                                <td>{{ $rep->Representative_name }}</td>
+                                <td>{{ $rep->Institution_Name ?? '—' }}</td>
+                                <td>{{ $rep->Phone }}</td>
+                                <td>
+                                    <span class="badge-active">Active</span> {{-- You can change this logic to use real status field --}}
+                                </td>
+                            </tr>
+                        @endforeach
+
+                        @if ($representatives->isEmpty())
+                            <tr>
+                                <td colspan="7" class="text-center">No representatives found.</td>
+                            </tr>
+                        @endif
                     </tbody>
+
                 </table>
             </div>
         </div>
     </div>
 
-    <script>
-        // Simple client-side search filter
-        document.getElementById('searchInput').addEventListener('keyup', function () {
-            let filter = this.value.toLowerCase();
-            let rows = document.querySelectorAll('#membersTable tbody tr');
-            rows.forEach(row => {
-                let text = row.innerText.toLowerCase();
-                row.style.display = text.includes(filter) ? '' : 'none';
-            });
+   <script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll('#membersTable tbody tr');
+        rows.forEach(row => {
+            let fourthColumn = row.cells[3]?.innerText.toLowerCase(); // 4th column (index 3)
+            row.style.display = fourthColumn && fourthColumn.includes(filter) ? '' : 'none';
         });
-    </script>
+    });
+</script>
+
 @endsection
