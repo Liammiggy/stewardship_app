@@ -84,6 +84,7 @@
                         @foreach ($representatives as $rep)
                             <tr>
                                 <td>
+
                                     <a href="{{ route('dataRepresentative.edit', ['id' => $rep->id]) }}" class="btn btn-warning btn-sm">...</a>
                                 </td>
                                 <td>{{ str_pad($rep->id, 3, '0', STR_PAD_LEFT) }}</td>

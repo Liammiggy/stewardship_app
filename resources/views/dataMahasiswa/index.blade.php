@@ -74,7 +74,8 @@
                         <tr>
                             <th><i class="fas fa-edit" title="Edit"></i></th>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
                             <th>Retirement Age</th>
                             <th>Phone</th>
                             <th>Representative</th>
@@ -83,38 +84,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a></td>
-                            <td>001</td>
-                            <td>John Doe</td>
-                            <td>65</td>
-                            <td>123-456-7890</td>
-                            <td>Rev. Smith</td>
-                            <td><a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a></td>
-                            <td><span class="badge-active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a></td>
-                            <td>002</td>
-                            <td>Jane Doe</td>
-                            <td>62</td>
-                            <td>987-654-3210</td>
-                            <td>Rev. Adams</td>
-                            <td><a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a></td>
-                            <td><span class="badge-inactive">Inactive</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="{{ route('dataMahasiswa.edit') }}" class="btn btn-warning btn-sm">...</a></td>
-                            <td>003</td>
-                            <td>Mark Smith</td>
-                            <td>64</td>
-                            <td>555-321-9876</td>
-                            <td>Rev. Clark</td>
-                            <td><a href="{{ route('dataMahasiswa.addpayment') }}" class="btn btn-success btn-sm">Add Contribution</a></td>
-                            <td><span class="badge-pending">Pending</span></td>
-                        </tr>
-                        <!-- Add more rows as needed -->
+                        @forelse ($members as $mhs)
+                            <tr>
+                                <td>
+                                    <a href="{{ route('dataMahasiswa.edit', $mhs->id) }}" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>{{ $mhs->id }}</td>
+                                <td>{{ $mhs->first_name }}</td>
+                                <td>{{ $mhs->last_name }}</td>
+                                <td>{{ $mhs->retirement_age ?? 'N/A' }}</td>
+                                <td>{{ $mhs->phone }}</td>
+                                <td>{{ $mhs->representative_name ?? '—' }}</td>
+                                <td>
+                                    <a href="{{ route('dataMahasiswa.addpayment', $mhs->id) }}" class="btn btn-success btn-sm">
+                                        Add Contribution
+                                    </a>
+                                </td>
+                                <td>
+                                    @if ($mhs->status === 'active')
+                                        <span class="badge-active">Active</span>
+                                    @elseif ($mhs->status === 'inactive')
+                                        <span class="badge-inactive">Inactive</span>
+                                    @else
+                                        <span class="badge-pending">Pending</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8" class="text-center">No members found.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
+
                 </table>
             </div>
         </div>

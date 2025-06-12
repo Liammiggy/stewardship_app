@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mahasiswa;
+use App\Models\Member;
+use App\Models\Representative;
+use Carbon\Carbon;
+
 
 class MahasiswaController extends Controller
 {
@@ -12,9 +15,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::orderBy('created_at', 'DESC')->get();
-
-        return view('dataMahasiswa.index', compact('mahasiswa'));
+       $members = Member::orderBy('created_at', 'DESC')->get();
+    return view('dataMahasiswa.index', compact('members'));
     }
 
 
@@ -45,73 +47,74 @@ public function addpayment()
 
       public function edit()
     {
-          
+
         return view('dataMahasiswa.edit');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $validation = $request -> validate([
-            'NIM' => 'required',
-            'Nama' => 'required',
-            'Alamat' => 'required',
-            'Nama_Ayah' => 'required',
-            'Nama_Ibu' => 'required',
-        ]);
-
-        Mahasiswa::create($request->all());
-
-        return redirect()->route('dataMahasiswa')->with('success', 'Data berhasil ditambahkan!');
+    public function getRepresentatives($type)
+{
+    switch ($type) {
+        case 'Pastor':
+            $reps = Representative::where('type', 'Pastor')->pluck('Representative_name');
+            break;
+        case 'Institution':
+            $reps = Representative::where('type', 'Institution')->pluck('Representative_name');
+            break;
+        case 'Individual':
+            $reps = Representative::where('type', 'Individual')->pluck('Representative_name');
+            break;
+        default:
+            $reps = collect();
     }
 
-       
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-  
-        return view('dataMahasiswa.show', compact('mahasiswa'));
+    return response()->json($reps);
+}
+
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'photo' => 'nullable|image|max:2048',
+        'first_name' => 'required|string|max:255',
+        'middle_name' => 'nullable|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'suffixes' => 'nullable|string|max:10',
+        'parents_name' => 'nullable|string|max:255',
+        'immediate_contact' => 'nullable|string|max:255',
+        'address' => 'required|string|max:255',
+        'geography' => 'nullable|string|max:255',
+        'country' => 'nullable|string|max:255',
+        'phone' => 'nullable|string|max:20',
+        'email' => 'nullable|email|max:255',
+        'facebook' => 'nullable|string|max:255',
+        'birthday' => 'nullable|date',
+        'role' => 'required|string',
+        'representative_type' => 'required|in:Pastor,Institution,Individual',
+        'representative_name' => 'required|string|max:255',
+        'beneficiaries_1' => 'nullable|array',
+        'beneficiaries_2' => 'nullable|string|max:255',
+    ]);
+
+    if ($request->hasFile('photo')) {
+        $validated['photo'] = $request->file('photo')->store('photos', 'public');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    $validated['age'] = $request->birthday ? Carbon::parse($request->birthday)->age : null;
+    $beneficiaries = $request->input('beneficiaries', []);
+    $validated['beneficiary_1'] = $beneficiaries[0] ?? null;
+    $validated['beneficiary_2'] = $beneficiaries[1] ?? null;
+    $validated['beneficiary_3'] = $beneficiaries[2] ?? null;
+    $validated['beneficiary_4'] = $beneficiaries[3] ?? null;
+    $validated['beneficiary_5'] = $beneficiaries[4] ?? null;
+    $validated['beneficiary_6'] = $beneficiaries[5] ?? null;
 
- 
 
-    // public function edit(string $id)
-    // {
-    //     $mahasiswa = Mahasiswa::findOrFail($id);
-  
-    //     return view('dataMahasiswa.edit', compact('mahasiswa'));
-    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-  
-        $mahasiswa->update($request->all());
-  
-        return redirect()->route('dataMahasiswa')->with('success', 'Data Mahasiswa Berhasil Diperbarui!');
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-  
-        $mahasiswa->delete();
-  
-        return redirect()->route('dataMahasiswa')->with('success', 'Data Mahasiswa Berhasil Dihapus!');
-    }
+    Member::create($validated);
+
+   return redirect()->route('dataMahasiswa.index')->with('success', 'Member successfully added!');
+
+
+}
+
 }

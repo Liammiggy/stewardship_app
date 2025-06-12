@@ -143,10 +143,6 @@
                   <a href="{{ route('dataRepresentative.representativelist') }}" class="btn btn-secondary ml-2">Back</a>
                </div>
 
-               <!-- Retirement Warning -->
-               <div id="retirementWarning" class="alert alert-warning mt-3 d-none">
-                  ⚠️ This person is within 3 years of retirement (age 60 in the Philippines).
-               </div>
             </div>
          </div>
       </div>

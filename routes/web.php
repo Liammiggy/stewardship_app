@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(MahasiswaController::class)->prefix('dataMahasiswa')->group(function () {
         Route::get('', 'index')->name('dataMahasiswa');
         Route::get('create', 'create')->name('dataMahasiswa.create');
-        Route::post('store', 'store')->name('dataMahasiswa.store');
+        // Route::post('store', 'store')->name('dataMahasiswa.store');
         Route::get('show/{id}', 'show')->name('dataMahasiswa.show');
         Route::get('edit', 'edit')->name('dataMahasiswa.edit');
         Route::put('edit/{id}', 'update')->name('dataMahasiswa.update');
@@ -50,6 +50,15 @@ Route::middleware('auth')->group(function () {
         Route::get('memberlist', 'memberlist')->name('dataMahasiswa.memberlist');
         Route::get('bulkupload', 'bulkupload')->name('dataMahasiswa.bulkupload');
         Route::get('addpayment', 'addpayment')->name('dataMahasiswa.addpayment');
+
+
+
+
+        Route::get('/dataMahasiswa', [MahasiswaController::class, 'index'])->name('dataMahasiswa.index');
+        Route::get('/dataMahasiswa/create', [MahasiswaController::class, 'create'])->name('dataMahasiswa.create');
+        Route::post('/dataMahasiswa/store', [MahasiswaController::class, 'store'])->name('dataMahasiswa.store');
+
+
 
 
     });
@@ -88,7 +97,9 @@ Route::middleware('auth')->group(function () {
         Route::controller(RepresentativeController::class)->prefix('dataRepresentative')->group(function () {
         Route::get('representativelistAdd', 'representativelistAdd')->name('dataRepresentative.representativelistAdd');
         Route::get('representativelist', 'representativelist')->name('dataRepresentative.representativelist');
-        Route::get('edit', 'edit')->name('dataRepresentative.edit');
+        Route::get('/representative/edit/{id}', [RepresentativeController::class, 'edit'])->name('dataRepresentative.edit');
+        Route::put('/representative/update/{id}', [RepresentativeController::class, 'update'])->name('dataRepresentative.update');
+
         Route::post('store', 'store')->name('dataRepresentative.store'); // <-- ADD THIS
     });
 
@@ -101,6 +112,9 @@ Route::middleware('auth')->group(function () {
 
 
     });
+
+     Route::get('/get-representatives/{type}', [MahasiswaController::class, 'getRepresentatives']);
+
 
 
 

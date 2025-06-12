@@ -24,9 +24,46 @@ public function representativelist()
 }
 
 
-public function edit()
+// public function edit()
+// {
+//     return view('dataRepresentative.edit');
+// }
+
+public function edit($id)
 {
-    return view('dataRepresentative.edit');
+    $representative = Representative::findOrFail($id);
+    return view('dataRepresentative.edit', compact('representative'));
+}
+
+
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'type' => 'required|string',
+        'Representative_name' => 'required|string',
+        'Phone' => 'required|string',
+        'Email' => 'required|email',
+        'Street' => 'required|string',
+        'Barangay' => 'required|string',
+        'Municipality' => 'required|string',
+        'Province' => 'required|string',
+        'Zipcode' => 'required|string',
+        'Institution_Name' => 'required|string',
+        'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+    ]);
+
+    $rep = Representative::findOrFail($id);
+    $rep->fill($validated);
+
+    if ($request->hasFile('photo')) {
+        $filename = time() . '.' . $request->photo->extension();
+        $request->photo->storeAs('public/photos', $filename);
+        $rep->photo = $filename;
+    }
+
+    $rep->save();
+
+    return redirect()->route('dataRepresentative.representativelist')->with('success', 'Representative updated successfully.');
 }
 
 
