@@ -123,8 +123,29 @@
                         </div>
                     </div>
 
-                    <!-- Beneficiaries -->
-                    @for($i = 1; $i <= 6; $i += 2)
+                    {{-- Representative Dynamic Dropdown --}}
+                    <script>
+                        document.getElementById('repType').addEventListener('change', function () {
+                            const selectedType = this.value;
+                            const repSelect = document.getElementById('repSelect');
+
+                            repSelect.innerHTML = '<option value="">Loading...</option>';
+
+                            fetch(`/get-representatives/${selectedType}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    repSelect.innerHTML = '<option value="">Select Representative</option>';
+                                    data.forEach(name => {
+                                        const opt = document.createElement('option');
+                                        opt.value = name;
+                                        opt.textContent = name;
+                                        repSelect.appendChild(opt);
+                                    });
+                                });
+                        });
+                    </script>
+                                        <!-- Beneficiaries -->
+                                        @for($i = 1; $i <= 6; $i += 2)
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <input type="text" name="beneficiary_{{ $i }}" class="form-control" placeholder="Beneficiary {{ $i }}">
@@ -196,25 +217,5 @@
     });
 </script>
 
-{{-- Representative Dynamic Dropdown --}}
-<script>
-    document.getElementById('repType').addEventListener('change', function () {
-        const selectedType = this.value;
-        const repSelect = document.getElementById('repSelect');
 
-        repSelect.innerHTML = '<option value="">Loading...</option>';
-
-        fetch(`/get-representatives/${selectedType}`)
-            .then(response => response.json())
-            .then(data => {
-                repSelect.innerHTML = '<option value="">Select Representative</option>';
-                data.forEach(name => {
-                    const opt = document.createElement('option');
-                    opt.value = name;
-                    opt.textContent = name;
-                    repSelect.appendChild(opt);
-                });
-            });
-    });
-</script>
 @endsection

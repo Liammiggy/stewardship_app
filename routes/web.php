@@ -60,7 +60,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-
     });
 
 
@@ -113,7 +112,8 @@ Route::middleware('auth')->group(function () {
 
     });
 
-     Route::get('/get-representatives/{type}', [MahasiswaController::class, 'getRepresentatives']);
+     Route::get('/get-representatives/{type}', [RepresentativeController::class, 'getRepresentatives']);
+  Route::get('/get-members', [MahasiswaController::class, 'getMembers']);
 
 
 

@@ -66,6 +66,27 @@ public function update(Request $request, $id)
     return redirect()->route('dataRepresentative.representativelist')->with('success', 'Representative updated successfully.');
 }
 
+ public function getRepresentatives($type)
+{
+    switch ($type) {
+        case 'Pastor':
+            $reps = Representative::where('type', 'Pastor')->pluck('Representative_name');
+            break;
+        case 'Institution':
+            $reps = Representative::where('type', 'Institution')->pluck('Representative_name');
+            break;
+        case 'Individual':
+            $reps = Representative::where('type', 'Individual')->pluck('Representative_name');
+            break;
+        default:
+            $reps = collect();
+    }
+
+    return response()->json($reps);
+}
+
+
+
 
 public function store(Request $request)
 {

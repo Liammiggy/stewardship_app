@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Representative;
 use Carbon\Carbon;
+
+
 
 
 class MahasiswaController extends Controller
@@ -51,24 +54,6 @@ public function addpayment()
         return view('dataMahasiswa.edit');
     }
 
-    public function getRepresentatives($type)
-{
-    switch ($type) {
-        case 'Pastor':
-            $reps = Representative::where('type', 'Pastor')->pluck('Representative_name');
-            break;
-        case 'Institution':
-            $reps = Representative::where('type', 'Institution')->pluck('Representative_name');
-            break;
-        case 'Individual':
-            $reps = Representative::where('type', 'Individual')->pluck('Representative_name');
-            break;
-        default:
-            $reps = collect();
-    }
-
-    return response()->json($reps);
-}
 
 public function store(Request $request)
 {
@@ -125,6 +110,52 @@ public function store(Request $request)
 
 
 }
+
+
+// public function getMembers(Request $request) {
+//     $search = $request->search;
+
+//     $results = DB::table('members')
+//         ->where('name', 'LIKE', "%{$search}%")
+//         ->pluck('name'); // Or ->get() for full records
+
+//     return response()->json($results);
+// }
+
+
+public function getMembers(Request $request)
+{
+    $search = $request->input('search');
+
+    $members = DB::table('members')
+        ->select(DB::raw("CONCAT_WS(' ', first_name, middle_name, last_name, suffixes) AS full_name"))
+        ->when($search, function ($query, $search) {
+            $query->where(DB::raw("CONCAT_WS(' ', first_name, middle_name, last_name, suffixes)"), 'like', '%' . $search . '%');
+        })
+        ->pluck('full_name');
+
+    return response()->json($members);
+}
+
+//  public function getRepresentatives($type)
+// {
+//     switch ($type) {
+//         case 'Pastor':
+//             $reps = Representative::where('type', 'Pastor')->pluck('Representative_name');
+//             break;
+//         case 'Institution':
+//             $reps = Representative::where('type', 'Institution')->pluck('Representative_name');
+//             break;
+//         case 'Individual':
+//             $reps = Representative::where('type', 'Individual')->pluck('Representative_name');
+//             break;
+//         default:
+//             $reps = collect();
+//     }
+
+//     return response()->json($reps);
+// }
+
 
 
 }
