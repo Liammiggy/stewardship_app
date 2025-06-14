@@ -3,6 +3,16 @@
 @section('contents')
 <!-- <h1 class="mb-0">Add Member Information</h1> -->
 <!-- <hr /> -->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 
 <form action="{{ route('dataMahasiswa.store') }}" method="POST" enctype="multipart/form-data" id="memberForm">
@@ -278,11 +288,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <!-- <td>
 
-                            <a href="{{ route('dataOrganization.edit') }}" class="btn btn-warning btn-sm">...</a>
-
-                        </td> -->
                         <td>001</td>
                         <td>Raymond Bolambao</td>
                         <td>Ramon - Outpatient</td>

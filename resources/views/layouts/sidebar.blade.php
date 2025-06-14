@@ -183,11 +183,7 @@
                 Incident Request
             </a>
         </li>
-        <!-- <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.addincidentrequest') }}">
-                Add Incident Request
-            </a>
-        </li> -->
+
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.claimsreleasing') }}">
                 Releasing
@@ -209,11 +205,7 @@
                 Contributions
             </a>
         </li>
-        <!-- <li class="nav-item mb-2" style="margin-left:30px;">
-            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.addincidentrequest') }}">
-                Add Incident Request
-            </a>
-        </li> -->
+
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataContribution.add_Incedent_contribution') }}">
                  Incident Contribution

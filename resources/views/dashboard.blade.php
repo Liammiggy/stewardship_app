@@ -1,7 +1,7 @@
 @extends('layouts.app')
-  
+
 @section('title')
-  
+
 @section('contents')
 <div class="container-fluid">
 
@@ -15,7 +15,7 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                      
+
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
@@ -24,7 +24,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Initials Member (total)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">150</div>
+                                            <div id="initial-members" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-solid fa-user-check fa-2x text-gray-300"></i>
@@ -45,15 +45,15 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">150</div>
+                                                    <div id="renewal-members" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Loading...</div>
                                                 </div>
-                                                <div class="col">
+                                                <!-- <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
                                                             style="width: 97%" aria-valuenow="97" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -65,8 +65,25 @@
                         </div>
 
 
-                          <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                fetch('/count-member-types')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        document.getElementById('initial-members').textContent = data.initial;
+                                        document.getElementById('renewal-members').textContent = data.renewal;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching member types count:', error);
+                                        document.getElementById('initial-members').textContent = 'Error';
+                                        document.getElementById('renewal-members').textContent = 'Error';
+                                    });
+                            });
+                            </script>
+
+
+                          <!-- total memebers Card  -->
+                        <!-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -81,7 +98,38 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Members</div>
+                                            <div id="total-members" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-solid fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                            <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                fetch('/count-members')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        document.getElementById('total-members').textContent = data.total;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching member count:', error);
+                                        document.getElementById('total-members').textContent = 'Error';
+                                    });
+                            });
+                            </script>
+
 
 
                         <!-- Pending Requests Card Example -->

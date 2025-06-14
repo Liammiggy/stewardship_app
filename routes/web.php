@@ -9,6 +9,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\IncedentClaimsController;
 use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\RepresentativeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,7 @@ Route::middleware('auth')->group(function () {
 
 
 
+
     });
 
 
@@ -103,17 +105,20 @@ Route::middleware('auth')->group(function () {
     });
 
 
-        Route::controller(OrganizationController::class)->prefix('dataOrganization')->group(function () {
+    //     Route::controller(OrganizationController::class)->prefix('dataOrganization')->group(function () {
 
-        Route::get('addorganization', 'addorganization')->name('dataOrganization.addorganization');
-        Route::get('organizationlist', 'organizationlist')->name('dataOrganization.organizationlist');
-        Route::get('edit', 'edit')->name('dataOrganization.edit');
+    //     Route::get('addorganization', 'addorganization')->name('dataOrganization.addorganization');
+    //     Route::get('organizationlist', 'organizationlist')->name('dataOrganization.organizationlist');
+    //     Route::get('edit', 'edit')->name('dataOrganization.edit');
 
 
-    });
+    // });
 
      Route::get('/get-representatives/{type}', [RepresentativeController::class, 'getRepresentatives']);
-  Route::get('/get-members', [MahasiswaController::class, 'getMembers']);
+     Route::get('/count-members', [MahasiswaController::class, 'countMembers']);
+     Route::get('/count-member-types', [MahasiswaController::class, 'countMemberTypes']);
+
+     Route::get('/get-members', [MahasiswaController::class, 'getMembers']);
 
 
 
@@ -121,14 +126,23 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(IncedentClaimsController::class)->prefix('dataIncedentClaims')->group(function () {
 
-        Route::get('addincidentrequest', 'addincidentrequest')->name('dataIncedentClaims.addincidentrequest');
+        Route::get('create', 'create')->name('dataIncedentClaims.create');
         Route::get('incidentlist', 'incidentlist')->name('dataIncedentClaims.incidentlist');
         Route::get('edit', 'edit')->name('dataIncedentClaims.edit');
         route::get('claimsreleasing', 'claimsreleasing')->name('dataIncedentClaims.claimsreleasing');
         Route::get('printpreview', 'printpreview')->name('dataIncedentClaims.printpreview');
 
 
+        Route::post('store', [IncedentClaimsController::class, 'store'])->name('dataIncedentClaims.store');
+
+
+
     });
+         Route::resource('incidents', \App\Http\Controllers\IncidentController::class);
+
+
+
+
 
 
         Route::controller(ContributionController::class)->prefix('dataContribution')->group(function () {
@@ -142,6 +156,7 @@ Route::middleware('auth')->group(function () {
 
 
     });
+
 
 
 

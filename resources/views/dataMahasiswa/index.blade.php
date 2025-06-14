@@ -129,7 +129,7 @@
                                     @elseif ($mhs->status === 'inactive')
                                         <span class="badge-inactive">Inactive</span>
                                     @else
-                                        <span class="badge-pending">Pending</span>
+                                        <span class="badge-active">Active</span>
                                     @endif
                                 </td>
                             </tr>
@@ -138,9 +138,11 @@
                                 <td colspan="8" class="text-center">No members found.</td>
                             </tr>
                         @endforelse
+
                     </tbody>
 
                 </table>
+
             </div>
         </div>
     </div>

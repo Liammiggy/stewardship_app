@@ -128,13 +128,37 @@ public function getMembers(Request $request)
     $search = $request->input('search');
 
     $members = DB::table('members')
-        ->select(DB::raw("CONCAT_WS(' ', first_name, middle_name, last_name, suffixes) AS full_name"))
+        ->select(
+            'id',
+            DB::raw("CONCAT_WS(' ', first_name, middle_name, last_name, suffixes) AS full_name")
+        )
         ->when($search, function ($query, $search) {
             $query->where(DB::raw("CONCAT_WS(' ', first_name, middle_name, last_name, suffixes)"), 'like', '%' . $search . '%');
         })
-        ->pluck('full_name');
+        ->get();
 
     return response()->json($members);
+}
+
+public function countMembers()
+{
+    $total = DB::table('members')->count();
+    return response()->json(['total' => $total]);
+}
+
+public function countMemberTypes()
+{
+    $counts = DB::table('members')
+        ->select(
+            DB::raw("SUM(CASE WHEN membership_type = 'initial' THEN 1 ELSE 0 END) as initial_count"),
+            DB::raw("SUM(CASE WHEN membership_type = 'renewal' THEN 1 ELSE 0 END) as renewal_count")
+        )
+        ->first();
+
+    return response()->json([
+        'initial' => $counts->initial_count,
+        'renewal' => $counts->renewal_count,
+    ]);
 }
 
 //  public function getRepresentatives($type)
