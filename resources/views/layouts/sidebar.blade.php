@@ -99,12 +99,12 @@
                 Members
             </a>
         </li>
-
+<!--
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.addpayment') }}">
                 Payment
             </a>
-        </li>
+        </li> -->
 
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataMahasiswa.bulkupload') }}">
@@ -186,7 +186,14 @@
 
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.claimsreleasing') }}">
-                Releasing
+                1st Releasing (7 Days)
+            </a>
+        </li>
+
+
+         <li class="nav-item mb-2" style="margin-left:30px;">
+            <a class="nav-link text-secondary ps-3" href="{{ route('dataIncedentClaims.claimsreleasing') }}">
+                2nd Releasing (30 Days)
             </a>
         </li>
 
@@ -202,7 +209,7 @@
 
         <li class="nav-item mb-2" style="margin-left:30px;">
             <a class="nav-link text-secondary ps-3" href="{{ route('dataContribution.contributionlist') }}">
-                Contributions
+                Member Contributions
             </a>
         </li>
 

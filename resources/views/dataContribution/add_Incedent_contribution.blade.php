@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Incident Contribution')
+@section('title', 'Incident Contributions')
 
 @section('contents')
 <style>
@@ -38,27 +38,109 @@
 <div class="card">
     <div class="card-body">
 
-        {{-- Filters --}}
-        <div class="row align-items-center mb-3">
-            <div class="col-md-4 mb-2">
-                <input type="text" id="searchInput" class="form-control" placeholder="Select Representative...">
-            </div>
-            <div class="col-md-3 mb-2">
-                <select id="SavingsFilter" class="form-control">
-                    <option value="">Incedent Title</option>
-                    <!-- <option value="Approved">College Education</option>
-                    <option value="For Release">Retirement</option> -->
-                </select>
-            </div>
-                       <div class="col-md-3 mb-2">
-                <select id="SavingsFilter" class="form-control">
-                    <option value="">Incedent Type</option>
-                    <!-- <option value="Approved">College Education</option>
-                    <option value="For Release">Retirement</option> -->
-                </select>
-            </div>
-           
-        </div>
+
+                <div class="row align-items-center mb-3">
+                    <!-- Requestee Dropdown -->
+                    <div class="col-md-3 mb-2">
+                        <label for="requestee" class="form-label">Requestee</label>
+                        <select id="requestee" name="requestee" class="form-control">
+                            <option value="">Select Member</option>
+                            <option value="Ramon - Outpatient Minor Surgery">David A. Torres</option>
+                        </select>
+                    </div>
+
+                    <!-- Incident Title 1 -->
+                    <div class="col-md-2 mb-2">
+                        <label for="incident_title_1" class="form-label">Incident Title</label>
+                        <input type="text" id="incident_title_1" class="form-control" name="incident_title[]" value="Ramon - Outpatient Minor Surgery" readonly>
+                    </div>
+
+                    <!-- Incident Title 2 -->
+                    <div class="col-md-2 mb-2">
+                        <label for="incident_title_2" class="form-label">Incident Type</label>
+                        <input type="text" id="incident_title_2" class="form-control" name="incident_title[]" value="Incident Type" readonly>
+                    </div>
+
+                    <!-- Representative Search -->
+
+                    <div class="col-md-3 mb-2">
+                                <label for="search_member">Representative</label>
+                               <input type="text" id="search_member" placeholder="Select Representative..." autocomplete="off" class="form-control">
+                                <input type="hidden" id="member_id" name="member_id">
+                                <div id="suggestions" style="position:fixed; z-index:1000; background:white; border:1px solid #ccc; width:auto; display:none;"></div>
+                       </div>
+
+                        <style>
+                            .suggestion-item {
+                                padding: 8px 12px;
+                                border-bottom: 1px solid #eee;
+                            }
+                            .suggestion-item:hover {
+                                background-color: #f1f1f1;
+                                cursor: pointer;
+                            }
+                        </style>
+
+
+                  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script>
+
+                                    $(document).ready(function() {
+                                        $('#search_member').on('input', function() {
+                                            let query = $(this).val();
+
+                                            if (query.length > 1) {
+                                                $.ajax({
+                                                    url: '/get-members',
+                                                    method: 'GET',
+                                                    data: { search: query },
+                                                    success: function(data) {
+                                                        let suggestions = '';
+                                                        data.forEach(function(member) {
+                                                            suggestions += `<div class="suggestion-item" data-id="${member.id}" data-name="${member.full_name}" style="cursor:pointer;">${member.full_name}</div>`;
+                                                        });
+                                                        $('#suggestions').html(suggestions).show();
+                                                    }
+                                                });
+                                            } else {
+                                                $('#suggestions').empty().hide();
+                                            }
+                                        });
+
+                                        // On selecting a suggestion
+                                        $(document).on('click', '.suggestion-item', function() {
+                                            let memberName = $(this).data('name');
+                                            let memberId = $(this).data('id');
+
+                                            $('#search_member').val(memberName);
+                                            $('#member_id').val(memberId); // Assuming you have a hidden input to store member ID
+                                            $('#suggestions').empty().hide();
+                                        });
+                                    });
+
+
+
+                        </script>
+
+                    <!-- <div class="col-md-3 mb-2">
+                        <label for="representative" class="form-label">Representative</label>
+                        <input type="text" id="representative" name="representative" class="form-control" placeholder="Search Representative...">
+                    </div> -->
+
+                    <!-- View Members Button -->
+                    <div class="col-md-2 mb-2">
+                        <label class="form-label d-block" style="visibility: hidden;">Button</label>
+                        <button type="button" id="viewMembersBtn" class="btn btn-primary w-100">
+                            View Members
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+
+
 
         {{-- Summary Card --}}
         <div class="card mb-4">
@@ -78,7 +160,7 @@
         <div class="table-responsive">
            <table class="table table-hover table-custom" id="membersTable">
                 <thead class="table-primary">
-                    <tr> 
+                    <tr>
 
                         <th>ID</th>
                         <th>Member Name</th>
@@ -91,7 +173,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        
+
                         <td>001</td>
                         <td>John Doe</td>
                         <td>Bogo City</td>
@@ -99,13 +181,13 @@
                         <td>Rev. Smith</td>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                           
+
                             <a href="{{ route('dataContribution.add_Incedent_contribution_payment') }}" class="btn btn-success btn-sm">Add Contribution</a>
                         </td>
                         <td><span style="color: white; padding: 0.25em 0.6em; border-radius: 0.25rem;" class="badge-active">Paid</span></td>
                     </tr>
                     <tr>
-                       
+
                         <td>002</td>
                         <td>Jane Doe</td>
                         <td>Bogo City</td>
@@ -113,7 +195,7 @@
                         <td>Rev. Smith</td>
                         <td>
                             <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-                           
+
                            <a href="{{ route('dataContribution.add_Incedent_contribution_payment') }}" class="btn btn-success btn-sm">Add Contribution</a>                        </td>
                         <td>
                         <span style="background-color: red; color: white; padding: 0.25em 0.6em; border-radius: 0.25rem;">
@@ -123,7 +205,7 @@
 
 
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>

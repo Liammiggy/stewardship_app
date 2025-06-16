@@ -60,6 +60,97 @@
             </div>
         </div>
 
+
+        <div class="card mb-4">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">Contribution Summary</h5>
+    </div>
+    <div class="card-body p-3">
+        <div class="row g-3">
+            <!-- Wedding -->
+            <div class="col-md-2">
+                <div class="card border-left-primary shadow-sm h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Wedding</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">₱0.00</div>
+                        </div>
+                        <i class="fas fa-ring fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maternity -->
+            <div class="col-md-2">
+                <div class="card border-left-info shadow-sm h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Maternity</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">₱1,200.00</div>
+                        </div>
+                        <i class="fas fa-baby fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- College Education -->
+            <div class="col-md-2">
+                <div class="card border-left-success shadow-sm h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">College</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">₱200.00</div>
+                        </div>
+                        <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retirement -->
+            <div class="col-md-2">
+                <div class="card border-left-warning shadow-sm h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Retirement</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">₱850.00</div>
+                        </div>
+                        <i class="fas fa-briefcase fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency -->
+            <div class="col-md-2">
+                <div class="card border-left-danger shadow-sm h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Emergency</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">₱300.00</div>
+                        </div>
+                        <i class="fas fa-ambulance fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+
+
+
+                        <!-- Total Contributions -->
+                <div class="col-md-2">
+                    <div class="card border-left-success shadow-sm h-100 bg-success text-white">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Total</div>
+                                <div class="h6 mb-0 font-weight-bold">₱3,050.00</div>
+                            </div>
+                            <i class="fas fa-coins fa-2x text-white-50"></i>
+                        </div>
+                    </div>
+                </div>
+</div>
+    </div>
+</div>
+
+
         {{-- Summary Card --}}
         <div class="card mb-4">
             <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">

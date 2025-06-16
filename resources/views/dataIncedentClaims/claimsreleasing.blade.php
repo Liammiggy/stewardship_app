@@ -1,50 +1,53 @@
 @extends('layouts.app')
-@section('title', 'Releasing (Disursement)')
+@section('title', 'Releasing (Disbursement)')
 @section('contents')
 <style>
    .section-body {
-   border: 1px solid #dee2e6;
-   padding: 15px;
-   background-color: #fdfdfd;
-   border-radius: 6px;
-   margin-bottom: 20px;
+      border: 1px solid #dee2e6;
+      padding: 15px;
+      background-color: #fdfdfd;
+      border-radius: 6px;
+      margin-bottom: 20px;
    }
    .form-group {
-   margin-bottom: 15px;
+      margin-bottom: 15px;
    }
    .form-label {
-   font-weight: 600;
-   margin-bottom: 5px;
-   display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
    }
    .amount-box {
-   background-color: #f1f3f5;
-   padding: 15px;
-   border-radius: 6px;
-   margin-top: 20px;
+      background-color: #f1f3f5;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
    }
    .amount-highlight {
-   font-size: 1.6rem;
-   font-weight: bold;
-   color: #28a745;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #28a745;
    }
    .table-summary th, .table-summary td {
-   vertical-align: middle;
-   text-align: left;
-   padding: 8px;
+      vertical-align: middle;
+      text-align: left;
+      padding: 8px;
    }
    .form-buttons {
-   margin-top: 20px;
+      margin-top: 20px;
    }
    textarea.form-control {
-   resize: none;
+      resize: none;
    }
    select.form-control {
-   max-width: 400px;
+      max-width: 400px;
    }
 </style>
+
 <form action="{{ route('dataMahasiswa.store') }}" method="POST" id="incidentForm">
    @csrf
+
+   <!-- MEMBER & INCIDENT INFO -->
    <div class="section-body">
       <div class="row">
          <div class="col-md-3 form-group">
@@ -72,122 +75,135 @@
             </select>
          </div>
          <div class="col-md-3 form-group d-flex align-items-end">
-            <button type="button" class="btn btn-primary w-100">
-            Calculate Claims
-            </button>
+            <button type="button" class="btn btn-primary w-100" onclick="calculate()">Calculate Claims</button>
          </div>
       </div>
    </div>
-   <div class="section-body" id="printArea">
-      <div class="form-group">
-         <table class="table table-bordered table-summary mt-3">
-            <tbody>
-               <tr>
-                  <td><strong>Nature of Benefits:</strong></td>
-                  <td>Death</td>
-                  <td><strong>Name of a Member:</strong></td>
-                  <td>Macario Porones Jr</td>
-               </tr>
-               <tr>
-                  <td><strong>Address:</strong></td>
-                  <td>Puerto Princesa City, Palawan</td>
-                  <td><strong>Church:</strong></td>
-                  <td>God's Kingdom Embassy</td>
-               </tr>
-               <tr>
-                  <td><strong>Spouse:</strong></td>
-                  <td>N.A</td>
-                  <td><strong>Pastor:</strong></td>
-                  <td>Armando Sabado</td>
-               </tr>
-               <tr>
-                  <td><strong>Contact No.:</strong></td>
-                  <td>0999 222 22</td>
-                  <td><strong>Beneficiary:</strong></td>
-                  <td>Cheryl Sabado</td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-      <div class="amount-box d-flex justify-content-between ">
-         <div><strong>Total Amount Active Members</strong></div>
-         <div class="amount-highlight" >₱49,225.00</div>
-      </div>
+
+   <!-- MEMBER INFO TABLE -->
+   <div class="form-group">
       <table class="table table-bordered table-summary mt-3">
-         <thead>
-            <tr>
-               <th>Category</th>
-               <th>Amount (₱)</th>
-               <th>% Share</th>
-            </tr>
-         </thead>
          <tbody>
             <tr>
-               <td>For Member</td>
-               <td>33,247.13</td>
-               <td>67.50%</td>
+               <td><strong>Nature of Benefits:</strong></td>
+               <td>Death</td>
+               <td><strong>Name of a Member:</strong></td>
+               <td>Macario Porones Jr</td>
             </tr>
             <tr>
-               <td>Tithe's Member</td>
-               <td>3,694.13</td>
-               <td>7.50%</td>
+               <td><strong>Address:</strong></td>
+               <td>Puerto Princesa City, Palawan</td>
+               <td><strong>Church:</strong></td>
+               <td>God's Kingdom Embassy</td>
             </tr>
             <tr>
-               <td>Tithes Stewardship</td>
-               <td>1,231.38</td>
-               <td>2.50%</td>
+               <td><strong>Spouse:</strong></td>
+               <td>N.A</td>
+               <td><strong>Pastor:</strong></td>
+               <td>Armando Sabado</td>
             </tr>
             <tr>
-               <td>Mission Support</td>
-               <td>1,231.38</td>
-               <td>2.50%</td>
-            </tr>
-            <tr>
-               <td>Stewardship</td>
-               <td>9,851.00</td>
-               <td>20.00%</td>
+               <td><strong>Contact No.:</strong></td>
+               <td>0999 222 22</td>
+               <td><strong>Beneficiary:</strong></td>
+               <td>Cheryl Sabado</td>
             </tr>
          </tbody>
       </table>
+   </div>
+
+   <!-- COLLECTIONS -->
+   <div class="amount-box d-flex justify-content-between">
+      <div class="card-body">
+         <div class="row">
+            <div class="col-md-4 mb-3">
+               <label for="collection" class="form-label">Actual Collections in 7 Days (PHP):</label>
+               <input type="number" step="any" id="collection" class="form-control" placeholder="Total Collections for 7 Days">
+            </div>
+            <div class="col-md-4 mb-3">
+               <label for="penaltyPercentage" class="form-label">Misgivings Penalty (% of Benefits):</label>
+               <input type="number" step="any" id="penaltyPercentage" class="form-control" placeholder="e.g., 15">
+            </div>
+            <div class="col-md-4 mb-3">
+               <label for="misgivingsAmount" class="form-label">Misgivings Amount (Fixed):</label>
+               <input type="number" step="any" id="misgivingsAmount" class="form-control" placeholder="e.g., 1030">
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- CALCULATOR SECTION -->
+   <div class="section-body">
+      <table class="table table-bordered mt-4">
+         <tbody>
+            <tr>
+               <th>MEMBER'S BENEFITS <small>(Collection × 70%)</small></th>
+               <td><input type="text" id="benefits" class="form-control" readonly></td>
+            </tr>
+            <tr>
+               <th>PENALTY <small>(% of Benefit)</small></th>
+               <td><input type="text" id="penalty" class="form-control" readonly></td>
+            </tr>
+            <tr>
+               <th>MISGIVINGS <small>(Manual Fixed Input)</small></th>
+               <td><input type="text" id="misgivings" class="form-control" readonly></td>
+            </tr>
+            <tr>
+               <th>WITHHOLDING <small>(Benefit × 10%)</small></th>
+               <td><input type="text" id="withholding" class="form-control" readonly></td>
+            </tr>
+            <tr>
+               <th class="fw-bold">TOTAL DEDUCTIONS</th>
+               <td><input type="text" id="deductions" class="form-control" readonly></td>
+            </tr>
+            <tr>
+               <th class="fw-bold text-success">NET BENEFIT CLAIM</th>
+               <td><input type="text" id="netClaim" class="form-control" readonly></td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="note mt-3"><strong>NOTE:</strong> In 30 days, Stewardship will release your final gift balance and the church tithes.</div>
+   </div>
+
+   <!-- ACTION BUTTONS -->
+   <div class="section-body">
       <div class="text-left mt-4">
          <button type="submit" class="btn btn-success">Disburse</button>
          <button type="reset" class="btn btn-warning ml-2">Reset</button>
          <a href="{{ route('dataIncedentClaims.incidentlist') }}" class="btn btn-secondary ml-2">Back</a>
-         <!-- <button type="button" onclick="printClaim()" class="btn btn-outline-dark ml-2">  <i class="bi bi-printer"></i> Print View </button> -->
-         <a href="{{ route('dataIncedentClaims.printpreview') }}" target="_blank" class="btn btn-outline-dark ml-2">
-   <i class="bi bi-printer"></i> Print View
-</a>
-
+         <button type="button" onclick="printClaim()" class="btn btn-outline-dark ml-2">
+            <i class="bi bi-printer"></i> Print View
+         </button>
       </div>
    </div>
 </form>
-@push('scripts')
+
+<!-- JS SCRIPT -->
 <script>
+   function calculate() {
+      const collection = parseFloat(document.getElementById('collection').value) || 0;
+      const penaltyPercentage = parseFloat(document.getElementById('penaltyPercentage').value) || 0;
+      const misgivings = parseFloat(document.getElementById('misgivingsAmount').value) || 0;
+
+      const benefits = collection * 0.70;
+      const penalty = benefits * (penaltyPercentage / 100);
+      const withholding = benefits * 0.10;
+      const deductions = penalty + misgivings + withholding;
+      const netClaim = benefits - deductions;
+
+      document.getElementById('benefits').value = benefits.toFixed(2);
+      document.getElementById('penalty').value = penalty.toFixed(2);
+      document.getElementById('misgivings').value = misgivings.toFixed(2);
+      document.getElementById('withholding').value = withholding.toFixed(2);
+      document.getElementById('deductions').value = deductions.toFixed(2);
+      document.getElementById('netClaim').value = netClaim.toFixed(2);
+   }
+
    function printClaim() {
-       var printContents = document.getElementById('printArea').innerHTML;
-       var originalContents = document.body.innerHTML;
-   
-       document.body.innerHTML = printContents;
-       window.print();
-       document.body.innerHTML = originalContents;
-       location.reload(); // optional: refresh to restore JS functionality
+      window.print(); // opens print dialog for full page
    }
 </script>
-<style>
-   @media print {
-   body * {
-   visibility: hidden;
-   }
-   #printArea, #printArea * {
-   visibility: visible;
-   }
-   #printArea {
-   position: absolute;
-   left: 0;
-   top: 0;
-   width: 100%;
-   }
-   }
-</style>
+
+@push('scripts')
 @endpush
 @endsection
