@@ -169,5 +169,26 @@ public function incidentContribution()
 }
 
 
+public function getByRepresentative(Request $request)
+{
+    $request->validate([
+        'rep_name' => 'required|string'
+    ]);
+
+    $members = Member::where('representative_name', $request->rep_name)
+        ->select('id', 'first_name', 'last_name', 'address', 'representative_name')
+        ->get()
+        ->map(function ($member) {
+            return [
+                'id' => $member->id,
+                'full_name' => $member->first_name . ' ' . $member->last_name,
+                'address' => $member->address,
+                'representative_name' => $member->representative_name,
+            ];
+        });
+
+    return response()->json(['members' => $members]);
+}
+
 
 }

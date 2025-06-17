@@ -9,6 +9,8 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\IncedentClaimsController;
 use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\RepresentativeController;
+use App\Http\Controllers\IncidentContributionController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,10 +159,15 @@ Route::middleware('auth')->group(function () {
 
     });
 
+Route::match(['get', 'post'], '/get-members-by-incident', [IncidentContributionController::class, 'getMembersByIncident']);
 
+    Route::get('/get-approved-requests', [IncidentContributionController::class, 'getApprovedRequests']);
+    Route::get('/incident-request/{id}', [IncidentContributionController::class, 'getIncidentById']);
+    Route::get('/get-representatives', [IncidentContributionController::class, 'getRepresentatives']);
+    Route::post('/get-members-by-incident', [IncidentContributionController::class, 'getMembersByIncident']);
 
+    Route::get('/add-contribution/{member_id}/{incident_id}', [IncidentContributionController::class, 'addContributionForm'])->name('dataContribution.add_Incedent_contribution_payment');
+    Route::post('/store-contribution', [IncidentContributionController::class, 'storeContribution'])->name('dataContribution.store');
 
-
-    Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
 
 });

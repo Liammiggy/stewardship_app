@@ -3,14 +3,9 @@
 
 @section('contents')
 <style>
-    table.table-custom tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    table.table-custom tr:nth-child(odd) {
-        background-color: #ffffff;
-    }
-    table.table-custom td,
-    table.table-custom th {
+    table.table-custom tr:nth-child(even) { background-color: #f9f9f9; }
+    table.table-custom tr:nth-child(odd) { background-color: #ffffff; }
+    table.table-custom td, table.table-custom th {
         padding-top: 6px;
         padding-bottom: 6px;
         vertical-align: middle;
@@ -22,14 +17,8 @@
         border-radius: 12px;
     }
     .badge-inactive {
-        background-color: #6c757d;
+        background-color: #dc3545;
         color: #fff;
-        padding: 5px 10px;
-        border-radius: 12px;
-    }
-    .badge-pending {
-        background-color: #ffc107;
-        color: #212529;
         padding: 5px 10px;
         border-radius: 12px;
     }
@@ -37,190 +26,176 @@
 
 <div class="card">
     <div class="card-body">
+        <div class="row align-items-center mb-3">
+            <div class="col-md-4 mb-2">
+                <label for="requestee" class="form-label">Requestee</label>
+                <select id="requestee" name="requestee" class="form-control">
+                    <option value="">Select Requestee</option>
+                </select>
+            </div>
 
+            <div class="col-md-3 mb-2">
+                <label for="incident_title" class="form-label">Incident Title</label>
+                <input type="text" id="incident_title" class="form-control" readonly>
+            </div>
 
-                <div class="row align-items-center mb-3">
-                    <!-- Requestee Dropdown -->
-                    <div class="col-md-3 mb-2">
-                        <label for="requestee" class="form-label">Requestee</label>
-                        <select id="requestee" name="requestee" class="form-control">
-                            <option value="">Select Member</option>
-                            <option value="Ramon - Outpatient Minor Surgery">David A. Torres</option>
-                        </select>
-                    </div>
+            <div class="col-md-3 mb-2">
+                <label for="incident_type" class="form-label">Incident Type</label>
+                <input type="text" id="incident_type" class="form-control" readonly>
+            </div>
 
-                    <!-- Incident Title 1 -->
-                    <div class="col-md-2 mb-2">
-                        <label for="incident_title_1" class="form-label">Incident Title</label>
-                        <input type="text" id="incident_title_1" class="form-control" name="incident_title[]" value="Ramon - Outpatient Minor Surgery" readonly>
-                    </div>
+            <div class="col-md-3 mb-2">
+                <label for="representative" class="form-label">Representative</label>
+                <select id="representative" name="representative" class="form-control">
+                    <option value="">Select Representative</option>
+                </select>
+            </div>
 
-                    <!-- Incident Title 2 -->
-                    <div class="col-md-2 mb-2">
-                        <label for="incident_title_2" class="form-label">Incident Type</label>
-                        <input type="text" id="incident_title_2" class="form-control" name="incident_title[]" value="Incident Type" readonly>
-                    </div>
+            <div class="col-md-2 mb-2">
+                <label class="form-label d-block" style="visibility: hidden;">Button</label>
+                <button type="button" id="viewMembersBtn" class="btn btn-primary w-100">View Members</button>
+            </div>
+        </div>
 
-                    <!-- Representative Search -->
-
-                    <div class="col-md-3 mb-2">
-                                <label for="search_member">Representative</label>
-                               <input type="text" id="search_member" placeholder="Select Representative..." autocomplete="off" class="form-control">
-                                <input type="hidden" id="member_id" name="member_id">
-                                <div id="suggestions" style="position:fixed; z-index:1000; background:white; border:1px solid #ccc; width:auto; display:none;"></div>
-                       </div>
-
-                        <style>
-                            .suggestion-item {
-                                padding: 8px 12px;
-                                border-bottom: 1px solid #eee;
-                            }
-                            .suggestion-item:hover {
-                                background-color: #f1f1f1;
-                                cursor: pointer;
-                            }
-                        </style>
-
-
-                  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-
-                                    $(document).ready(function() {
-                                        $('#search_member').on('input', function() {
-                                            let query = $(this).val();
-
-                                            if (query.length > 1) {
-                                                $.ajax({
-                                                    url: '/get-members',
-                                                    method: 'GET',
-                                                    data: { search: query },
-                                                    success: function(data) {
-                                                        let suggestions = '';
-                                                        data.forEach(function(member) {
-                                                            suggestions += `<div class="suggestion-item" data-id="${member.id}" data-name="${member.full_name}" style="cursor:pointer;">${member.full_name}</div>`;
-                                                        });
-                                                        $('#suggestions').html(suggestions).show();
-                                                    }
-                                                });
-                                            } else {
-                                                $('#suggestions').empty().hide();
-                                            }
-                                        });
-
-                                        // On selecting a suggestion
-                                        $(document).on('click', '.suggestion-item', function() {
-                                            let memberName = $(this).data('name');
-                                            let memberId = $(this).data('id');
-
-                                            $('#search_member').val(memberName);
-                                            $('#member_id').val(memberId); // Assuming you have a hidden input to store member ID
-                                            $('#suggestions').empty().hide();
-                                        });
-                                    });
-
-
-
-                        </script>
-
-                    <!-- <div class="col-md-3 mb-2">
-                        <label for="representative" class="form-label">Representative</label>
-                        <input type="text" id="representative" name="representative" class="form-control" placeholder="Search Representative...">
-                    </div> -->
-
-                    <!-- View Members Button -->
-                    <div class="col-md-2 mb-2">
-                        <label class="form-label d-block" style="visibility: hidden;">Button</label>
-                        <button type="button" id="viewMembersBtn" class="btn btn-primary w-100">
-                            View Members
-                        </button>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-        {{-- Summary Card --}}
         <div class="card mb-4">
             <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
                 <div class="mb-2 mb-md-0">
                     <h5 class="mb-1">Incident Title:</h5>
-                    <h3 class="mb-0">Ramon - Outpatient Minor Surgery</h3>
+                    <h3 class="mb-0" id="summaryTitle">---</h3>
                 </div>
                 <div class="text-md-right">
                     <div class="text-muted">Total Contribution</div>
-                    <h3 class="text-success mb-0">₱35000.00</h3>
+                    <h3 class="text-success mb-0" id="summaryTotal">₱0.00</h3>
                 </div>
             </div>
         </div>
 
-        {{-- Responsive Table --}}
         <div class="table-responsive">
-           <table class="table table-hover table-custom" id="membersTable">
+            <table class="table table-hover table-custom" id="membersTable">
                 <thead class="table-primary">
                     <tr>
-
                         <th>ID</th>
                         <th>Member Name</th>
                         <th>Address</th>
+                         <th>Representative</th>
                         <th>Amount Paid</th>
-                        <th>Pastor</th>
+
                         <th>Action</th>
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-
-                        <td>001</td>
-                        <td>John Doe</td>
-                        <td>Bogo City</td>
-                        <td>35000</td>
-                        <td>Rev. Smith</td>
-                        <td>
-                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-
-                            <a href="{{ route('dataContribution.add_Incedent_contribution_payment') }}" class="btn btn-success btn-sm">Add Contribution</a>
-                        </td>
-                        <td><span style="color: white; padding: 0.25em 0.6em; border-radius: 0.25rem;" class="badge-active">Paid</span></td>
-                    </tr>
-                    <tr>
-
-                        <td>002</td>
-                        <td>Jane Doe</td>
-                        <td>Bogo City</td>
-                        <td>0.00</td>
-                        <td>Rev. Smith</td>
-                        <td>
-                            <!-- <a href="#" class="btn btn-primary btn-sm">Detail</a> -->
-
-                           <a href="{{ route('dataContribution.add_Incedent_contribution_payment') }}" class="btn btn-success btn-sm">Add Contribution</a>                        </td>
-                        <td>
-                        <span style="background-color: red; color: white; padding: 0.25em 0.6em; border-radius: 0.25rem;">
-                           Unpaid
-                        </span>
-                        </td>
-
-
-                    </tr>
-
+                <tbody id="membersTbody">
+                    <tr><td colspan="7" class="text-center text-muted">No members loaded.</td></tr>
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
-    // Simple client-side search filter
-    document.getElementById('searchInput').addEventListener('keyup', function () {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('#membersTable tbody tr');
-        rows.forEach(row => {
-            let text = row.innerText.toLowerCase();
-            row.style.display = text.includes(filter) ? '' : 'none';
+    $(document).ready(function () {
+        let selectedIncidentId = null;
+
+        // Load requestees
+        $.get('/get-approved-requests', function (data) {
+            $('#requestee').empty().append('<option value="">Select Requestee</option>');
+            data.forEach(req => {
+                const fullName = `${req.member?.first_name ?? 'Unknown'} ${req.member?.last_name ?? ''}`;
+                $('#requestee').append(`<option value="${req.id}">${fullName}</option>`);
+            });
+        }).fail(function () {
+            alert("Failed to load requestees.");
+        });
+
+        // Load representatives
+        $.get('/get-representatives', function (data) {
+            $('#representative').empty().append('<option value="">Select Representative</option>');
+            if (data.length === 0) {
+                $('#representative').append('<option disabled>No representatives found</option>');
+            } else {
+               data.forEach(rep => {
+    $('#representative').append(`<option value="${rep.id}">${rep.name}</option>`);
+});
+
+            }
+        }).fail(function () {
+            alert("Failed to load representatives.");
+        });
+
+        // On selecting a requestee
+        $('#requestee').on('change', function () {
+            const id = $(this).val();
+            selectedIncidentId = id;
+            if (!id) return;
+
+            $.get(`/incident-request/${id}`, function (data) {
+                $('#incident_title').val(data.incident_title ?? '');
+                $('#incident_type').val(data.incident_type ?? '');
+                $('#summaryTitle').text(data.incident_title ?? '---');
+            }).fail(function () {
+                alert("Failed to load incident details.");
+            });
+        });
+
+        // On clicking "View Members"
+        $('#viewMembersBtn').on('click', function () {
+            const repId = $('#representative').val();
+
+            if (!repId || !selectedIncidentId) {
+                alert('Please select both representative and incident.');
+                return;
+            }
+
+            $.ajax({
+                url: '/get-members-by-incident',
+                type: 'POST',
+                data: {
+                    rep_id: repId,
+                    incident_request_id: selectedIncidentId
+                },
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    let rows = '';
+                    let total = 0;
+
+                    if (!response.members || response.members.length === 0) {
+                        rows = '<tr><td colspan="7" class="text-center text-muted">No members found.</td></tr>';
+                    } else {
+                       response.members.forEach(member => {
+                        const contribution = parseFloat(member.amount ?? 0);
+                        total += contribution;
+                        const status = member.status === 'paid' ? 'Paid' : 'Unpaid';
+                        const badgeClass = member.status === 'paid' ? 'badge-active' : 'badge-inactive';
+
+                        rows += `
+                            <tr>
+                                <td>${member.member_id}</td> <!-- FIXED: was member.id -->
+                                <td>${member.name}</td>
+                                <td>${member.address ?? 'N/A'}</td>
+                                <td>${member.representative_name} (${member.representative_type})</td>
+                                 <td>₱${parseFloat(member.amount_paid).toFixed(2)}</td>
+
+                                <td>
+                                    <a href="/add-contribution/${member.member_id}/${selectedIncidentId}" class="btn btn-success btn-sm">Add Contribution</a>
+                                </td>
+                                <td><span class="${badgeClass}">${status}</span></td>
+                            </tr>
+                        `;
+                    });
+
+                    }
+
+                    $('#membersTbody').html(rows);
+                    $('#summaryTotal').text(`₱${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
+                },
+                error: function (xhr, status, error) {
+                    alert('Error loading members: ' + error);
+                }
+            });
         });
     });
 </script>

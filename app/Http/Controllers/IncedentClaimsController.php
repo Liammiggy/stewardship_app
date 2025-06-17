@@ -9,7 +9,6 @@ use App\Models\IncidentRequest;
 class IncedentClaimsController extends Controller
 {
 
-
 public function create()
 {
     return view('dataIncedentClaims.create');

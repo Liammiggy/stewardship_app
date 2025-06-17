@@ -134,19 +134,19 @@
 
 
 
-                        <!-- Total Contributions -->
-                <div class="col-md-2">
-                    <div class="card border-left-success shadow-sm h-100 bg-success text-white">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Total</div>
-                                <div class="h6 mb-0 font-weight-bold">₱3,050.00</div>
-                            </div>
-                            <i class="fas fa-coins fa-2x text-white-50"></i>
+            <!-- Total Contributions -->
+            <div class="col-md-2">
+                <div class="card border-left-dark shadow-sm h-100 bg-active text-white">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Total</div>
+                            <div class="h6 mb-0 font-weight-bold">₱3,050.00</div>
                         </div>
+                        <i class="fas fa-coins fa-2x text-white-50"></i>
                     </div>
                 </div>
-</div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -23,10 +23,21 @@ class IncidentRequest  extends Model
 
 
 
-    public function member()
+//     public function member()
+// {
+//     return $this->belongsTo(Member::class, 'member_id');
+// }
+
+// public function member()
+// {
+//     return $this->belongsTo(Member::class);
+// }
+
+public function member()
 {
-    return $this->belongsTo(Member::class, 'member_id');
+    return $this->belongsTo(Member::class);
 }
+
 
 }
 
